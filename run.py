@@ -5,6 +5,47 @@
 # function to work, the game flow is coded in reverse order
 # (the first scenes appear last in the code, the game end in the beginning).
 
+def room_one():
+    print("bajs")
+
+def game_over_coward():
+    print("coward")
+
+def adventure_start():
+    """
+    The first scene/room in the game. Setting the scene and
+    letting the player choose directions through inputs.
+    """
+    print("You are greeted by the entrance of the")
+    print("giant cave at Mount Gylia. An eerie feeling befalls")
+    print("you and your heart starts beating faster.\n")
+    print("There are only 2 choices:\n")
+    print("Turn back and admit defeat,")
+    print("or")
+    print("push forward and become a hero.\n")
+    print("Which direction do you choose?")
+    print("up")
+    print("or")
+    print("down?\n")
+    
+    while True:
+        direction_cave = input("Choose (up/down): ")
+        try:
+            if direction_cave.lower() == "up":
+                room_one()
+                break
+            elif direction_cave.lower() == "down":
+                game_over_coward()
+                break
+            elif direction_cave == "right":
+                print("You cannot go there right now")
+            elif direction_cave == "left":
+                print("You cannot go there right now")
+            else:
+                raise ValueError("This is not a valid option. Please choose 'up' or 'down'")
+        except ValueError as e:
+            print(e)
+
 def main():
     """
     The main function of this game. Sets the scene and let's
@@ -23,8 +64,9 @@ def main():
     print("Blubb has been captured by the evil witch Samsara.\n")
     print("This is your chance to prove to the world")
     print("that you are not but a mere bard..")
-    print("You are an adventurer!")
+    print("You are an adventurer!\n")
     print("And so your tale begins,") 
-    print("in front of the ominous cave at Mount Gylia.")
+    print("in front of the ominous cave at Mount Gylia.\n")
+    adventure_start()
 
 main()
