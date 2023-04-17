@@ -36,19 +36,19 @@ def room_one():
     while True:
         directions_room_one = input("Please choose (right/up): \n")
         try:
-            if directions_room_one == "right":
+            if directions_room_one.lower() == "right":
                 print("You decide to explore the path")
                 print("to your right.")
                 room_two()
                 break
-            elif directions_room_one == "up":
+            elif directions_room_one.lower() == "up":
                 print("You decide to continue onward.")
                 room_three()
                 break
-            elif directions_room_one == "left":
+            elif directions_room_one.lower() == "left":
                 print("Maybe you should try the left!")
                 print("You hit your head on the wall.")
-            elif directions_room_one == "down":
+            elif directions_room_one.lower() == "down":
                 print("No! You cannot turn back now!")
             else:
                 raise ValueError("This is not a valid option!")
@@ -67,6 +67,7 @@ def adventure_start():
     """
     The first scene/room in the game. Setting the scene and
     letting the player choose directions through inputs.
+    Input are validated.
     """
     print("You are greeted by the entrance of the")
     print("giant cave at Mount Gylia. An eerie feeling befalls")
@@ -83,7 +84,7 @@ def adventure_start():
     while True:
         direction_cave = input("Please choose (up/down): ")
         try:
-            if direction_cave == "up":
+            if direction_cave.lower() == "up":
                 print("You tighten the grip around")
                 print("your sword. There is no")
                 print("turning back! You will")
@@ -91,16 +92,16 @@ def adventure_start():
                 print("will be a hero!\n")
                 room_one()
                 break
-            elif direction_cave == "down":
+            elif direction_cave.lower() == "down":
                 print("Maybe you were not ready")
                 print("for this challenge after all.")
                 print("Your shaking legs seem at")
                 print("at least to think so.")
                 game_over_coward()
                 break
-            elif direction_cave == "right":
+            elif direction_cave.lower() == "right":
                 print("You cannot go there right now")
-            elif direction_cave == "left":
+            elif direction_cave.lower() == "left":
                 print("You cannot go there right now")
             else:
                 raise ValueError("This is not a valid option. Please choose 'up' or 'down'")
