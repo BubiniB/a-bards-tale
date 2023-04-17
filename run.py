@@ -17,8 +17,68 @@ def item_torch():
     global torch
     torch = True
 
-def 
+def room_two():
+   """
+   Runs the item_torch function, which is used
+   in room_three(). Let's the player choose whether to
+   take the torch or leave it and validates input.
+   """ 
+   print("You follow the right path and suddenly")
+   print("you notice how everything seems to be getting")
+   print("lighter. As you enter the room at the end")
+   print("of the path, you notice why: \n")
+   print("There is a torch!\n")
+   print("Will you take the torch?\n")
 
+   while True:
+        choice_torch = input("Please choose (y/n): \n").lower()
+        try:
+            if choice_torch == "y":
+                print("You could really use a little")
+                print("more light and decide to take")
+                print("the torch with you.")
+                print("As there is nothing left to")
+                print("explore in this room, you decide")
+                print("to return to the previous room.")
+                print("This time however with a torch!\n")
+                item_torch()
+                room_one()
+                break
+            elif choice_torch == "yes":
+                print("You could really use a little")
+                print("more light and decide to take")
+                print("the torch with you.")
+                print("As there is nothing left to")
+                print("explore in this room, you decide")
+                print("to return to the previous room.")
+                print("This time however with a torch!\n")
+                item_torch()
+                room_one()
+                break
+            elif choice_torch == "n":
+                print("You are afraid of taking something")
+                print("which is not yours and decide to")
+                print("to leave the torch where it is.")
+                print("As there is nothing left to")
+                print("explore in this room, you decide")
+                print("to return to the previous room")
+                print("without the torch!\n")
+                room_one()
+                break
+            elif choice_torch == "no":
+                print("You are afraid of taking something")
+                print("which is not yours and decide to")
+                print("to leave the torch where it is.")
+                print("As there is nothing left to")
+                print("explore in this room, you decide")
+                print("to return to the previous room")
+                print("without the torch!\n")
+                room_one()
+                break
+            else:
+                raise ValueError("This is not a valid option.")
+        except ValueError as e:
+            print(e)
 
 def room_one():
     """
@@ -51,7 +111,7 @@ def room_one():
             elif directions_room_one.lower() == "down":
                 print("No! You cannot turn back now!")
             else:
-                raise ValueError("This is not a valid option!")
+                raise ValueError("This is not a valid option.")
         except ValueError as e:
             print(e)
 
@@ -104,7 +164,7 @@ def adventure_start():
             elif direction_cave.lower() == "left":
                 print("You cannot go there right now")
             else:
-                raise ValueError("This is not a valid option. Please choose 'up' or 'down'")
+                raise ValueError("This is not a valid option.")
         except ValueError as e:
             print(e)
 
