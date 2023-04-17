@@ -10,8 +10,14 @@
 torch = False
 
 def item_torch():
+    """
+    Alters the global variable torch and sets it
+    to True. Function will be used in room_two().
+    """
     global torch
     torch = True
+
+def 
 
 
 def room_one():
@@ -30,19 +36,19 @@ def room_one():
     while True:
         directions_room_one = input("Please choose (right/up): \n")
         try:
-            if directions_room_one.lower() == "right":
+            if directions_room_one == "right":
                 print("You decide to explore the path")
                 print("to your right.")
                 room_two()
                 break
-            elif directions_room_one.lower() == "up":
+            elif directions_room_one == "up":
                 print("You decide to continue onward.")
                 room_three()
                 break
-            elif directions_room_one.lower() == "left":
+            elif directions_room_one == "left":
                 print("Maybe you should try the left!")
                 print("You hit your head on the wall.")
-            elif directions_room_one.lower() == "down":
+            elif directions_room_one == "down":
                 print("No! You cannot turn back now!")
             else:
                 raise ValueError("This is not a valid option!")
@@ -77,7 +83,7 @@ def adventure_start():
     while True:
         direction_cave = input("Please choose (up/down): ")
         try:
-            if direction_cave.lower() == "up":
+            if direction_cave == "up":
                 print("You tighten the grip around")
                 print("your sword. There is no")
                 print("turning back! You will")
@@ -85,7 +91,7 @@ def adventure_start():
                 print("will be a hero!\n")
                 room_one()
                 break
-            elif direction_cave.lower() == "down":
+            elif direction_cave == "down":
                 print("Maybe you were not ready")
                 print("for this challenge after all.")
                 print("Your shaking legs seem at")
