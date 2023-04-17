@@ -9,6 +9,10 @@
 # in room_two() and in room_three().
 torch = False
 
+def item_torch():
+    global torch
+    torch = True
+
 
 def room_one():
     """
