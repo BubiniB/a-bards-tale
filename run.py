@@ -5,6 +5,11 @@
 # function to work, the game flow is coded in reverse order
 # (the first scenes appear last in the code, the game end in the beginning).
 
+# Global variable, which is later used
+# in room_two() and in room_three().
+torch = False
+
+
 def room_one():
     """
     Let's players choose which directions to go
