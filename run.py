@@ -131,56 +131,79 @@ def room_two():
    in room_three(). Let's the player choose whether to
    take the torch or leave it and validates input.
    """ 
-   print("You follow the right path and suddenly")
-   print("you notice how everything seems to be getting")
-   print("lighter. As you enter the room at the end")
-   print("of the path, you notice why: \n")
-   print("There is a torch!\n")
-   print("Will you take the torch?\n")
+   print("""
+   You follow the right path and suddenly
+   you notice how everything seems to be getting
+   lighter. As you enter the room at the end
+   of the path, you notice why:
+
+   There is a torch!
+
+   Will you take the torch?
+   """)
 
    while True:
-        choice_torch = input("Please choose (y/n): \n").lower()
+        print("Please choose (y/n):\n")
+        choice_torch = input(">> ").lower()
         try:
             if choice_torch == "y":
-                print("You could really use a little")
-                print("more light and decide to take")
-                print("the torch with you.")
-                print("As there is nothing left to")
-                print("explore in this room, you decide")
-                print("to return to the previous room.")
-                print("This time however with a torch!\n")
+                print("""
+    You could really use a little
+    more light and decide to take
+    the torch with you.
+
+        >> TOOK TORCH
+
+    As there is nothing left to
+    explore in this room, you decide
+    to return to the previous room.
+
+    This time however with a torch!
+                """)
                 item_torch()
                 room_one()
                 break
             elif choice_torch == "yes":
-                print("You could really use a little")
-                print("more light and decide to take")
-                print("the torch with you.")
-                print("As there is nothing left to")
-                print("explore in this room, you decide")
-                print("to return to the previous room.")
-                print("This time however with a torch!\n")
+                print("""
+    You could really use a little
+    more light and decide to take
+    the torch with you.
+
+        >> TOOK TORCH
+
+    As there is nothing left to
+    explore in this room, you decide
+    to return to the previous room.
+
+    This time however with a torch!
+                """)
                 item_torch()
                 room_one()
                 break
             elif choice_torch == "n":
-                print("You are afraid of taking something")
-                print("which is not yours and decide to")
-                print("to leave the torch where it is.")
-                print("As there is nothing left to")
-                print("explore in this room, you decide")
-                print("to return to the previous room")
-                print("without the torch!\n")
+                print("""
+    You are afraid of taking something
+    which is not yours and decide to
+    to leave the torch where it is.
+
+    As there is nothing left to
+    explore in this room, you decide
+    to return to the previous room
+    without the torch!
+                """)
                 room_one()
                 break
             elif choice_torch == "no":
-                print("You are afraid of taking something")
-                print("which is not yours and decide to")
-                print("to leave the torch where it is.")
-                print("As there is nothing left to")
-                print("explore in this room, you decide")
-                print("to return to the previous room")
-                print("without the torch!\n")
+                print("""
+    You are afraid of taking something
+    which is not yours and decide to
+    to leave the torch where it is.
+
+    As there is nothing left to
+    explore in this room, you decide
+    to return to the previous room
+    without the torch!
+                """)
                 room_one()
                 break
             else:
@@ -193,20 +216,25 @@ def room_one():
     Let's players choose which directions to go
     and validates input.
     """
-    print("You have finally entered the evil witche's")
-    print("lair. You follow the path deeper into")
-    print("the cave until you come to a crossroad.\n")
-    print("The path has now split into two:\n")
-    print("You can continue to the right,")
-    print("or simply move onward.\n")
-    print("Which path will you choose?")
+    print("""
+    You follow the path  until you come to a crossroad.
+    The path has now split into two:
+
+    You can continue to the right,
+    or simply move onward.
+
+    Which path will you choose?
+    """)
 
     while True:
-        directions_room_one = input("Please choose (right/up): \n")
+        print("Please choose (right/up):\n")
+        directions_room_one = input(">> ")
         try:
             if directions_room_one.lower() == "right":
-                print("You decide to explore the path")
-                print("to your right.")
+                print("""
+    You decide to explore the path
+    to your right.
+                """)
                 room_two()
                 break
             elif directions_room_one.lower() == "up":
@@ -214,8 +242,11 @@ def room_one():
                 room_three()
                 break
             elif directions_room_one.lower() == "left":
-                print("Maybe you should try the left!")
-                print("You hit your head on the wall.")
+                print("""
+    Maybe you should try the left!
+    *OUCH!*
+    You hit your head on the wall.
+                """)
             elif directions_room_one.lower() == "down":
                 print("No! You cannot turn back now!")
             else:
@@ -238,34 +269,37 @@ def adventure_start():
     letting the player choose directions through inputs.
     Input are validated.
     """
-    print("You are greeted by the entrance of the")
-    print("giant cave at Mount Gylia. An eerie feeling befalls")
-    print("you and your heart starts beating faster.\n")
-    print("There are only 2 choices:\n")
-    print("Turn back and admit defeat,")
-    print("or")
-    print("push forward and become a hero.\n")
-    print("Which direction do you choose?")
-    print("up")
-    print("or")
-    print("down?\n")
+    print("""
+    There are only 2 choices:
+    Turn back and admit defeat
+    OR
+    push forward and become a hero.
+
+    Which direction do you choose?
+    Up or down?
+    """)
     
     while True:
-        direction_cave = input("Please choose (up/down): ")
+        print("Please choose (up/down):\n")
+        direction_cave = input(">> ")
         try:
             if direction_cave.lower() == "up":
-                print("You tighten the grip around")
-                print("your sword. There is no")
-                print("turning back! You will")
-                print("rescue the princess and you")
-                print("will be a hero!\n")
+                print("""
+    You tighten the grip around
+    your sword. There is no
+    turning back! You will
+    rescue the princess and you
+    will be a hero!
+                """)
                 room_one()
                 break
             elif direction_cave.lower() == "down":
-                print("Maybe you were not ready")
-                print("for this challenge after all.")
-                print("Your shaking legs seem at")
-                print("at least to think so.")
+                print("""
+    Maybe you were not ready
+    for this challenge after all.
+    Your shaking legs seem at
+    least to think so.
+                """)
                 game_over_coward()
                 break
             elif direction_cave.lower() == "right":
@@ -283,21 +317,32 @@ def main():
     player immerse themselves in the game world, as well as
     start the game.
     """
-    print("Welcome to A Bard's Tale.\n")
-    print("You are the famous bard")
-    print("Esmond Covendown.\n")
-    print("You are well known around the lands") 
-    print("of Palina for your beautiful singing voice and")
-    print("colorful expressions when singing of heroic tales.\n")
-    print("However..\n")
-    print("The thrill of adventure is calling to you")
-    print("when you hear that the beautiful princess")
-    print("Blubb has been captured by the evil witch Samsara.\n")
-    print("This is your chance to prove to the world")
-    print("that you are not but a mere bard..")
-    print("You are an adventurer!\n")
-    print("And so your tale begins,") 
-    print("in front of the ominous cave at Mount Gylia.\n")
+    print("""
+    Welcome to A Bard's Tale. 
+    You are the famous bard Esmond
+    Covendown and you are well known 
+    around the lands of Palina for your
+    beautiful singing voice and colorful 
+    expressions when singing of heroic tales
+
+    However..
+
+    The thrill of adventure is calling to you
+    when you hear that the beautiful princess
+    Blubb has been captured by the evil witch
+    Blabb.
+
+    This is your chance to prove to the world
+    that you are not but a mere bard..
+    You are an adventurer!
+
+    And so your tale begins,
+    in front of the ominous cave at Mount Gylia.
+
+    You are greeted by the entrance of the
+    giant cave.. An eerie feeling befalls
+    you and your heart starts beating faster.
+    """)
     adventure_start()
 
 main()
