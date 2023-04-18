@@ -117,6 +117,7 @@ def darkness():
     even seeing where to go?
     
         >> RETURN TO PREVIOUS ROOM
+    _______________________________________
                 """)
                 room_one()
                 break
@@ -147,12 +148,27 @@ def item_torch():
     torch = True
 
 def room_two():
-   """
+    """
    Runs the item_torch function, which is used
    in room_three(). Let's the player choose whether to
    take the torch or leave it and validates input.
    """ 
-   print("""
+    global torch
+    if torch == True:
+        print("""
+    You do not need to enter this room
+    again.
+
+    Remember?
+
+    You already have the torch and
+    there was
+    nothing left to explore.
+    _______________________________________
+        """)
+        room_one()
+    else:
+        print("""
    You follow the right path and suddenly
    you notice how everything seems to be getting
    lighter. As you enter the room at the end
@@ -161,14 +177,14 @@ def room_two():
    There is a torch!
 
    Will you take the torch?
-   """)
+        """)
 
-   while True:
-        print("Please choose (y/n):\n")
-        choice_torch = input(">> ").lower()
-        try:
-            if choice_torch == "y":
-                print("""
+        while True:
+            print("Please choose (y/n):\n")
+            choice_torch = input(">> ").lower()
+            try:
+                if choice_torch == "y":
+                    print("""
     You could really use a little
     more light and decide to take
     the torch with you.
@@ -182,12 +198,13 @@ def room_two():
     This time however with a torch!
 
         >> RETURN TO PREVIOUS ROOM
+    ________________________________
                 """)
-                item_torch()
-                room_one()
-                break
-            elif choice_torch == "yes":
-                print("""
+                    item_torch()
+                    room_one()
+                    break
+                elif choice_torch == "yes":
+                    print("""
     You could really use a little
     more light and decide to take
     the torch with you.
@@ -201,12 +218,13 @@ def room_two():
     This time however with a torch!
 
         >> RETURN TO PREVIOUS ROOM
-                """)
-                item_torch()
-                room_one()
-                break
-            elif choice_torch == "n":
-                print("""
+    ________________________________
+                    """)
+                    item_torch()
+                    room_one()
+                    break
+                elif choice_torch == "n":
+                    print("""
     You are afraid of taking something
     which is not yours and decide to
     to leave the torch where it is.
@@ -217,11 +235,12 @@ def room_two():
     without the torch!
 
         >> RETURN TO PREVIOUS ROOM
-                """)
-                room_one()
-                break
-            elif choice_torch == "no":
-                print("""
+    _________________________________
+                    """)
+                    room_one()
+                    break
+                elif choice_torch == "no":
+                    print("""
     You are afraid of taking something
     which is not yours and decide to
     to leave the torch where it is.
@@ -232,13 +251,14 @@ def room_two():
     without the torch!
 
         >> RETURN TO PREVIOUS ROOM
-                """)
-                room_one()
-                break
-            else:
-                raise ValueError("This is not a valid option.")
-        except ValueError as e:
-            print(e)
+    _________________________________
+                    """)
+                    room_one()
+                    break
+                else:
+                    raise ValueError("This is not a valid option.")
+            except ValueError as e:
+                print(e)
 
 def room_one():
     """
@@ -246,9 +266,10 @@ def room_one():
     and validates input.
     """
     print("""
-    You follow the path  until you come to a crossroad.
-    The path has now split into two:
+    You follow the path until you come to a
+    crossroad.
 
+    The path has now split into two:
     You can continue to the right,
     or simply move onward.
 
@@ -263,6 +284,7 @@ def room_one():
                 print("""
     You decide to explore the path
     to your right.
+    ______________________________
                 """)
                 room_two()
                 break
@@ -319,6 +341,7 @@ def adventure_start():
     turning back! You will
     rescue the princess and you
     will be a hero!
+    _______________________________________
                 """)
                 room_one()
                 break
@@ -328,6 +351,7 @@ def adventure_start():
     for this challenge after all.
     Your shaking legs seem at
     least to think so.
+    _______________________________________
                 """)
                 game_over_coward()
                 break
