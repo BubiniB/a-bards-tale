@@ -9,6 +9,112 @@
 # in room_two() and in room_three().
 torch = False
 
+def goblins():
+    """
+    Let's player make choices, which
+    lead to different outcomes and
+    validates these.
+    """
+    print("""
+    You enter the room and notice almost
+    immediatly the group of 5 goblins
+    in one of the corners of the room.
+
+    Maybe this was not the right path..?
+
+    Before you even get a chance to make
+    a choice, the goblins notice you
+    and start running towards you. They
+    don't seem nice..
+
+    What should you do?
+        - Fight
+        - Run
+        - Sing
+    """)
+
+    while True:
+        print("Please choose (fight/run/sing):\n")
+        choice_action = input(">> ").lower()
+        try:
+            if choice_action == "fight":
+                print("""
+    You aren't a very skilled fighter. In
+    order to be able to fight you toss away
+    your torch and ready your sword.
+
+        >> LOST TORCH
+
+    The goblins charge at you, attacking
+    relentlessly. But don't give up and
+    strike at them until one after the
+    other falls in battle.
+
+    You are victorious!
+
+    But there is just one little thing
+    you remember now..
+
+    Your torch is gone.
+
+    You scan the room for anything
+    useful but it only appears to be
+    a dead end.
+
+    Exhausted and nervous you return to
+    the previous room.
+
+        >> RETURN TO PREVIOUS ROOM
+    __________________________________
+                """)
+                global torch
+                torch = False
+                room_three()
+                break
+            elif choice_action == "run":
+                print("""
+    You aren't a very skilled fighter since
+    this is your first adventure.
+
+    It would be crazy to think that
+    you would stand a chance against 5
+    goblins.
+
+    You run as fast as you can in the
+    direction you came from and the
+    goblins lose track of you.
+
+        >> RETURN TO PREVIOUS ROOM
+    __________________________________
+                """)
+                room_three()
+                break
+            elif choice_action == "sing":
+                print("""
+    Right! You could surprise them
+    with a song! Maybe this will
+    stun them and then you have a
+    chance to escape!
+
+        >> SINGING
+        'Hear the story of Erik the great..'
+
+    You don't get a chance to
+    complete your song, as the
+    angry mob of goblins seems
+    rather unaffected by the fine
+    art of singing.
+
+    They swing their weapons at you
+    and strike you to death.
+                """)
+                game_over_lynched()
+                break
+            else:
+                raise ValueError("This is not a valid option.")
+        except ValueError as e:
+            print(e)
+
 def dead_end_one():
     """
     Sends the player back to room_three.
@@ -41,6 +147,7 @@ def giant_spider():
 
     A giant spider is waiting for you in
     the middle of the room.
+
     You waive your torch at it and scare
     it away.
 
@@ -58,16 +165,28 @@ def giant_spider():
         choice_path = input(">> ").lower()
         try:
             if choice_path == "up":
+                print("""
+    You continue on the path in
+    front of you.
+                """)
                 goblins()
                 break
             elif choice_path == "right":
+                print("""
+    You choose the path to your right.
+                """)
                 dead_end_one()
                 break
             elif choice_path == "left":
+                print("""
+    You choose the path to your left.
+                """)
                 room_four()
                 break
             elif choice_path == "down":
-                print("You don't want to turn back!")
+                print("""
+    You don't want to turn back!
+                """)
             else:
                 raise ValueError("This is not a valid option.")
         except ValueError as e:
