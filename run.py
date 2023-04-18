@@ -9,6 +9,22 @@
 # in room_two() and in room_three().
 torch = False
 
+def dead_end_one():
+    """
+    Sends the player back to room_three.
+    """
+    print("""
+    As you enter the room, you are
+    greeted by a wall.
+
+    Great! A dead end! You have no
+    choice but to turn back.
+
+        >> RETURN TO PREVIOUS ROOM
+    __________________________________
+    """)
+    room_three()
+
 def giant_spider():
     """
     Progresses story and let's players make a
@@ -45,7 +61,7 @@ def giant_spider():
                 goblins()
                 break
             elif choice_path == "right":
-                dead_end()
+                dead_end_one()
                 break
             elif choice_path == "left":
                 room_four()
@@ -152,6 +168,8 @@ def room_two():
    Runs the item_torch function, which is used
    in room_three(). Let's the player choose whether to
    take the torch or leave it and validates input.
+   Checks whether player has already torch to avoid
+   repitition.
    """ 
     global torch
     if torch == True:
