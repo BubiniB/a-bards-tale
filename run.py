@@ -9,16 +9,52 @@
 # in room_two() and in room_three().
 torch = False
 
+def giant_spider():
+    """
+    Progresses story and let's players make a
+    choice. Validates choices.
+    """
+    print("As you continue on your path")
+    print("you notice how everything keeps")
+    print("getting darker. But with the torch") 
+    print("in your hand you are able to")
+    print("light up the room.\n")
+    print("A giant spider is waiting for you in")
+    print("the middle of the room.\n")
+    print("You waive your torch at it and")
+    print("scare it away.\n")
+    print("There are now 3 paths available to you:\n")
+    print("In front of you,")
+    print("to your right,")
+    print("and to your left.\n")
+    print("Which path do you choose?")
+
+    while True:
+        choice_path = input("Please choose (up/left/right): \n").lower()
+        try:
+            if choice_path == "up":
+                goblins()
+                break
+            elif choice_path == "right":
+                dead_end()
+                break
+            elif choice_path == "left":
+                room_four()
+                break
+            elif choice_path == "down":
+                print("You don't want to turn back!")
+            else:
+                raise ValueError("This is not a valid option.")
+        except ValueError as e:
+            print(e)
+        
+
 def game_over_darkness():
     """
     Runs another ending for players.
     """
-    print("No! You shall not be")
-    print("remembered as a coward!\n")
-    print("But maybe instead as a fool?")
-    print("Nobody wanders into the darkness")
-    print("without seeing something..\n")
-    print("The noises and sounds are")
+    print("Darkness engulfs you.")
+    print("Eerie noises and sounds are")
     print("closing in on you and suddenly")
     print("you are getting attacked.\n")
     print("Unable to parry the attack with your")
@@ -47,6 +83,11 @@ def darkness():
         choice_darkness = input("Please choose (up/down): \n").lower()
         try:
             if choice_darkness == "up":
+                print("No! You shall not be")
+                print("remembered as a coward!\n")
+                print("But maybe instead as a fool?")
+                print("Nobody wanders into the darkness")
+                print("without seeing something..\n")
                 game_over_darkness()
                 break
             elif choice_darkness == "down":
