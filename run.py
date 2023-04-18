@@ -9,6 +9,24 @@
 # in room_two() and in room_three().
 torch = False
 
+def game_over_darkness():
+    """
+    Runs another ending for players.
+    """
+    print("No! You shall not be")
+    print("remembered as a coward!\n")
+    print("But maybe instead as a fool?")
+    print("Nobody wanders into the darkness")
+    print("without seeing something..\n")
+    print("The noises and sounds are")
+    print("closing in on you and suddenly")
+    print("you are getting attacked.\n")
+    print("Unable to parry the attack with your")
+    print("sword because of the darkness around")
+    print("you, you are mortally wounded")
+    print("and die a painful death..\n")
+    game_over()
+
 def darkness():
     """
     Let's the player make a choice
@@ -29,13 +47,15 @@ def darkness():
         choice_darkness = input("Please choose (up/down): \n").lower()
         try:
             if choice_darkness == "up":
-                game_over_lost()
+                game_over_darkness()
                 break
             elif choice_darkness == "down":
                 print("You feel like a coward but")
                 print("how are you supposed to")
                 print("rescue somebody without even")
                 print("seeing where to go.")
+                print("You return to the previous")
+                print("room.\n")
                 room_one()
                 break
             else:
@@ -169,6 +189,7 @@ def game_over_coward():
     to play another round.
     """
     print("coward")
+    game_over()
 
 def adventure_start():
     """
