@@ -14,23 +14,32 @@ def giant_spider():
     Progresses story and let's players make a
     choice. Validates choices.
     """
-    print("As you continue on your path")
-    print("you notice how everything keeps")
-    print("getting darker. But with the torch") 
-    print("in your hand you are able to")
-    print("light up the room.\n")
-    print("A giant spider is waiting for you in")
-    print("the middle of the room.\n")
-    print("You waive your torch at it and")
-    print("scare it away.\n")
-    print("There are now 3 paths available to you:\n")
-    print("In front of you,")
-    print("to your right,")
-    print("and to your left.\n")
-    print("Which path do you choose?")
+    print("""
+    As you continue on your path
+    you notice how everything keeps
+    getting darker. But with the torch
+    in your hand you are able to light
+    up the room.
+
+    *GASP*
+
+    A giant spider is waiting for you in
+    the middle of the room.
+    You waive your torch at it and scare
+    it away.
+
+    There are now 3 paths available to you:
+    
+    - In front of you
+    - to your right,
+    - and to your left.
+
+    Which path do you choose?
+    """)
 
     while True:
-        choice_path = input("Please choose (up/left/right): \n").lower()
+        print("Please choose (up/left/right):\n")
+        choice_path = input(">> ").lower()
         try:
             if choice_path == "up":
                 goblins()
@@ -53,14 +62,18 @@ def game_over_darkness():
     """
     Runs another ending for players.
     """
-    print("Darkness engulfs you.")
-    print("Eerie noises and sounds are")
-    print("closing in on you and suddenly")
-    print("you are getting attacked.\n")
-    print("Unable to parry the attack with your")
-    print("sword because of the darkness around")
-    print("you, you are mortally wounded")
-    print("and die a painful death..\n")
+    print("""
+    Darkness engulfs you.
+
+    Eerie noises and sounds are closing
+    in on you and suddenly you are 
+    getting attacked!
+
+    Unable to parry the attack with your
+    sword because of the darkness around
+    you, you are mortally wounded
+    and die a painful death..
+    """)
     game_over()
 
 def darkness():
@@ -68,35 +81,43 @@ def darkness():
     Let's the player make a choice
     and validates it.
     """
-    print("As you continue on your path")
-    print("you notice how everything keeps")
-    print("getting darker. You continue")
-    print("until everything in front of")
-    print("you is pitch black.\n")
-    print("You hear sounds which you")
-    print("have never heard before and")
-    print("they send a shiver down your spine..\n")
-    print("Should you conquer your fear and")
-    print("move on or should you turn back?\n")
+    print("""
+    As you continue on your path you 
+    notice how everything keeps getting
+    darker. You continue until everything
+    in front of you is pitch black.
+
+    You hear sounds, which you have never
+    heard before and they send a shiver
+    down your spine..
+
+    Should you conquer your fear move on 
+    or should you turn back?
+    """)
 
     while True:
         choice_darkness = input("Please choose (up/down): \n").lower()
         try:
             if choice_darkness == "up":
-                print("No! You shall not be")
-                print("remembered as a coward!\n")
-                print("But maybe instead as a fool?")
-                print("Nobody wanders into the darkness")
-                print("without seeing something..\n")
+                print("""
+    No! You shall not be remembered as a
+    coward!
+
+    But maybe instead as a fool..?
+    
+    Nobody wanders into the darkness
+    without seeing something..
+                """)
                 game_over_darkness()
                 break
             elif choice_darkness == "down":
-                print("You feel like a coward but")
-                print("how are you supposed to")
-                print("rescue somebody without even")
-                print("seeing where to go.")
-                print("You return to the previous")
-                print("room.\n")
+                print("""
+    You feel like a coward.. But how are
+    you supposed to rescue somebody without
+    even seeing where to go?
+    
+        >> RETURN TO PREVIOUS ROOM
+                """)
                 room_one()
                 break
             else:
@@ -159,6 +180,8 @@ def room_two():
     to return to the previous room.
 
     This time however with a torch!
+
+        >> RETURN TO PREVIOUS ROOM
                 """)
                 item_torch()
                 room_one()
@@ -176,6 +199,8 @@ def room_two():
     to return to the previous room.
 
     This time however with a torch!
+
+        >> RETURN TO PREVIOUS ROOM
                 """)
                 item_torch()
                 room_one()
@@ -190,6 +215,8 @@ def room_two():
     explore in this room, you decide
     to return to the previous room
     without the torch!
+
+        >> RETURN TO PREVIOUS ROOM
                 """)
                 room_one()
                 break
@@ -203,6 +230,8 @@ def room_two():
     explore in this room, you decide
     to return to the previous room
     without the torch!
+
+        >> RETURN TO PREVIOUS ROOM
                 """)
                 room_one()
                 break
