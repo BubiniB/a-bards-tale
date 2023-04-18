@@ -69,7 +69,7 @@ def goblins():
                 """)
                 global torch
                 torch = False
-                room_three()
+                game_over_darkness()
                 break
             elif choice_action == "run":
                 print("""
