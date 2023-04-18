@@ -9,6 +9,53 @@
 # in room_two() and in room_three().
 torch = False
 
+def darkness():
+    """
+    Let's the player make a choice
+    and validates it.
+    """
+    print("As you continue on your path")
+    print("you notice how everything keeps")
+    print("getting darker. You continue")
+    print("until everything in front of")
+    print("you is pitch black.\n")
+    print("You hear sounds which you")
+    print("have never heard before and")
+    print("they send a shiver down your spine..\n")
+    print("Should you conquer your fear and")
+    print("move on or should you turn back?\n")
+
+    while True:
+        choice_darkness = input("Please choose (up/down): \n").lower()
+        try:
+            if choice_darkness == "up":
+                game_over_lost()
+                break
+            elif choice_darkness == "down":
+                print("You feel like a coward but")
+                print("how are you supposed to")
+                print("rescue somebody without even")
+                print("seeing where to go.")
+                room_one()
+                break
+            else:
+                raise ValueError("This is not a valid option.")
+        except ValueError as e:
+            print(e)
+
+
+def room_three():
+    """
+    Runs one of 2 functions depending on
+    if the global variable torch is set to True
+    or False.
+    """
+    global torch
+    if torch == True:
+        giant_spider()
+    else:
+        darkness()
+
 def item_torch():
     """
     Alters the global variable torch and sets it
