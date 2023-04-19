@@ -9,9 +9,54 @@
 # in room_two() and in room_three().
 torch = False
 
+def game_over_lynched():
+    """
+    One of the endings in the game
+    """
+    print("""
+    You don't get a chance to
+    complete your song, as the
+    angry mob of goblins seems
+    rather unaffected by the fine
+    art of singing.
+
+    They swing their weapons at you
+    and strike you to death.
+    """)
+    game_over()
+
+def game_over_lost_torch():
+    """
+    One of the endings in the game
+    """
+    print("""
+    You know what hideous monster
+    is waiting for you in this
+    room.. But this time you don't
+    have a torch to scare it away.
+    Nor see where you are supposed
+    to go.
+
+    But you have a great memory and
+    can almost see the room's layout
+    in front of you in spite of
+    being shrouded in darkness. You
+    decide to make a run for it.
+
+    The giant spider seems to be
+    however faster and catches you
+    almost immediatly. You feel a
+    sting in your chest and lose
+    consciousness..
+
+    And this is how you became spider
+    dinner..
+    """)
+    game_over()
+
 def goblins():
     """
-    Let's player make choices, which
+    Let's players make choices, which
     lead to different outcomes and
     validates these.
     """
@@ -46,7 +91,7 @@ def goblins():
         >> LOST TORCH
 
     The goblins charge at you, attacking
-    relentlessly. But don't give up and
+    relentlessly. But you don't give up and
     strike at them until one after the
     other falls in battle.
 
@@ -69,7 +114,7 @@ def goblins():
                 """)
                 global torch
                 torch = False
-                game_over_darkness()
+                game_over_lost_torch()
                 break
             elif choice_action == "run":
                 print("""
@@ -98,15 +143,7 @@ def goblins():
 
         >> SINGING
         'Hear the story of Erik the great..'
-
-    You don't get a chance to
-    complete your song, as the
-    angry mob of goblins seems
-    rather unaffected by the fine
-    art of singing.
-
-    They swing their weapons at you
-    and strike you to death.
+    ______________________________________
                 """)
                 game_over_lynched()
                 break
