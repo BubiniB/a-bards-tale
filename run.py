@@ -9,6 +9,72 @@
 # in room_two() and in room_three().
 torch = False
 
+def room_four():
+    """
+    Progresses story and let's players make a
+    choice. Validates choices.
+    """
+    print("""
+    You have made past the giant spider
+    and you feel relieved. As you enter 
+    the next room, another crossroad
+    opens up. You take a break
+    and collect your thoughts.
+    
+    This adventure has been more challenging
+    than anything you have ever done
+    in your entire life. But there is
+    no turning back now!
+
+    You take a big breath. Time to
+    move on!
+
+    Will you go to the left, up or
+    down?
+    """)
+
+    while True:
+        print("Please choose (left/up/down):\n")
+        choice_path = input(">> ").lower()
+        try:
+            if choice_path == "up":
+                print("""
+    You continue on the path in
+    front of you.
+    _________________________________
+                """)
+                evil_witch()
+                break
+            elif choice_path == "left":
+                print("""
+    You choose the left path .
+    __________________________________
+                """)
+                tale()
+                break
+            elif choice_path == "down":
+                print("""
+    As you continue on this path you
+    see something glittering and shining.
+    You seem to have found the treasure
+    room!
+    _________________________________
+                """)
+                treasure()
+                break
+            elif choice_path == "right":
+                print("""
+    Hey! Don't you remember?
+
+    NO TURNING BACK NOW!
+    _________________________________
+                """)
+            else:
+                raise ValueError("This is not a valid option.")
+        except ValueError as e:
+            print(e)
+
+
 def game_over_lynched():
     """
     One of the endings in the game
@@ -88,7 +154,7 @@ def goblins():
     order to be able to fight you toss away
     your torch and ready your sword.
 
-        >> LOST TORCH
+>> LOST TORCH
 
     The goblins charge at you, attacking
     relentlessly. But you don't give up and
@@ -109,7 +175,7 @@ def goblins():
     Exhausted and nervous you return to
     the previous room.
 
-        >> RETURN TO PREVIOUS ROOM
+>> RETURN TO PREVIOUS ROOM
     __________________________________
                 """)
                 global torch
@@ -129,7 +195,7 @@ def goblins():
     direction you came from and the
     goblins lose track of you.
 
-        >> RETURN TO PREVIOUS ROOM
+>> RETURN TO PREVIOUS ROOM
     __________________________________
                 """)
                 room_three()
@@ -141,8 +207,9 @@ def goblins():
     stun them and then you have a
     chance to escape!
 
-        >> SINGING
-        'Hear the story of Erik the great..'
+>> SINGING
+
+    'Hear the story of Erik the great..'
     ______________________________________
                 """)
                 game_over_lynched()
@@ -163,7 +230,7 @@ def dead_end_one():
     Great! A dead end! You have no
     choice but to turn back.
 
-        >> RETURN TO PREVIOUS ROOM
+>> RETURN TO PREVIOUS ROOM
     __________________________________
     """)
     room_three()
@@ -205,18 +272,21 @@ def giant_spider():
                 print("""
     You continue on the path in
     front of you.
+    _________________________________
                 """)
                 goblins()
                 break
             elif choice_path == "right":
                 print("""
     You choose the path to your right.
+    __________________________________
                 """)
                 dead_end_one()
                 break
             elif choice_path == "left":
                 print("""
     You choose the path to your left.
+    _________________________________
                 """)
                 room_four()
                 break
@@ -288,7 +358,7 @@ def darkness():
     you supposed to rescue somebody without
     even seeing where to go?
     
-        >> RETURN TO PREVIOUS ROOM
+>> RETURN TO PREVIOUS ROOM
     _______________________________________
                 """)
                 room_one()
@@ -336,8 +406,7 @@ def room_two():
     Remember?
 
     You already have the torch and
-    there was
-    nothing left to explore.
+    there was nothing left to explore.
     _______________________________________
         """)
         room_one()
@@ -363,7 +432,7 @@ def room_two():
     more light and decide to take
     the torch with you.
 
-        >> TOOK TORCH
+>> TOOK TORCH
 
     As there is nothing left to
     explore in this room, you decide
@@ -371,8 +440,8 @@ def room_two():
 
     This time however with a torch!
 
-        >> RETURN TO PREVIOUS ROOM
-    ________________________________
+>> RETURN TO PREVIOUS ROOM
+    __________________________________
                 """)
                     item_torch()
                     room_one()
@@ -383,7 +452,7 @@ def room_two():
     more light and decide to take
     the torch with you.
 
-        >> TOOK TORCH
+>> TOOK TORCH
 
     As there is nothing left to
     explore in this room, you decide
@@ -391,8 +460,8 @@ def room_two():
 
     This time however with a torch!
 
-        >> RETURN TO PREVIOUS ROOM
-    ________________________________
+>> RETURN TO PREVIOUS ROOM
+    __________________________________
                     """)
                     item_torch()
                     room_one()
@@ -408,7 +477,7 @@ def room_two():
     to return to the previous room
     without the torch!
 
-        >> RETURN TO PREVIOUS ROOM
+>> RETURN TO PREVIOUS ROOM
     _________________________________
                     """)
                     room_one()
@@ -424,7 +493,7 @@ def room_two():
     to return to the previous room
     without the torch!
 
-        >> RETURN TO PREVIOUS ROOM
+>> RETURN TO PREVIOUS ROOM
     _________________________________
                     """)
                     room_one()
@@ -458,12 +527,15 @@ def room_one():
                 print("""
     You decide to explore the path
     to your right.
-    ______________________________
+    _______________________________
                 """)
                 room_two()
                 break
             elif directions_room_one.lower() == "up":
-                print("You decide to continue onward.")
+                print("""
+     You decide to continue onward.
+     ______________________________
+                """)
                 room_three()
                 break
             elif directions_room_one.lower() == "left":
@@ -471,6 +543,7 @@ def room_one():
     Maybe you should try the left!
     *OUCH!*
     You hit your head on the wall.
+    _______________________________
                 """)
             elif directions_room_one.lower() == "down":
                 print("No! You cannot turn back now!")
@@ -515,7 +588,7 @@ def adventure_start():
     turning back! You will
     rescue the princess and you
     will be a hero!
-    _______________________________________
+    _____________________________________
                 """)
                 room_one()
                 break
@@ -525,7 +598,7 @@ def adventure_start():
     for this challenge after all.
     Your shaking legs seem at
     least to think so.
-    _______________________________________
+    _____________________________________
                 """)
                 game_over_coward()
                 break
