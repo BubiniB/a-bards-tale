@@ -9,6 +9,110 @@
 # in room_two() and in room_three().
 torch = False
 
+def treasure():
+    """
+    Let's players make a choice, validates
+    choices and runs one of multiple
+    endings, depending on players' choice
+    """
+    print("""
+    There are golden objects everywhere
+    scattered across the room. You
+    have never seen so much gold in
+    your entire life.
+
+    There is however one object
+    that catches your attention
+    in particular:
+
+    A golden harp.
+
+    The harp is placed on a pedestal
+    in the middle of the room. It
+    looks pure and untouched.
+
+    Maybe you should take it
+    with you, as a souvenir to remind
+    you of your heroic journey.
+
+    And who knows, it might come in
+    handy?
+
+    Will you take the harp?
+    Yes or no?
+    """)
+
+    while True:
+        print("Please choose (y/n):\n")
+        choice_harp = input(">> ").lower()
+        try:
+            if choice_harp == "y":
+                print("""
+    The harp is just too beautiful
+    to be left behind. You must
+    simply have it.
+
+>> TOOK HARP
+
+    As soon as you take the harp
+    the ground starts shaking.
+    This wasn't a good idea after
+    all...
+                """)
+                game_over_trap()
+                break
+            elif choice_harp == "yes":
+                print("""
+    The harp is just too beautiful
+    to be left behind. You must
+    simply have it.
+
+>> TOOK HARP
+
+    As soon as you take the harp
+    the ground starts shaking.
+    This wasn't a good idea after
+    all...
+                """)
+                game_over_trap()
+                break
+            elif choice_harp == "n":
+                print("""
+    No! There is no point in being
+    greedy! You are here to rescue
+    the princess and not on a
+    scavenge hunt!
+
+    You resist the urge to take the
+    harp with you and return to the
+    previous room.
+
+>> RETURN TO PREVIOUS ROOM
+    _________________________________
+                    """)
+                room_four()
+                break
+            elif choice_torch == "no":
+                print("""
+    No! There is no point in being
+    greedy! You are here to rescue
+    the princess and not on a
+    scavenge hunt!
+
+    You resist the urge to take the
+    harp with you and return to the
+    previous room.
+
+>> RETURN TO PREVIOUS ROOM
+    _________________________________
+                    """)
+                room_four()
+                break
+            else:
+                raise ValueError("This is not a valid option.")
+        except ValueError as e:
+            print(e)
+
 def room_four():
     """
     Progresses story and let's players make a
@@ -338,7 +442,8 @@ def darkness():
     """)
 
     while True:
-        choice_darkness = input("Please choose (up/down): \n").lower()
+        print("Please choose (up/down):\n")
+        choice_darkness = input(">> ").lower()
         try:
             if choice_darkness == "up":
                 print("""
