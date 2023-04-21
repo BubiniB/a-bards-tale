@@ -10,7 +10,115 @@
 torch = False
 
 def tale():
+    """
+    Let's the player make 2 choices,
+    validates them and can unlock
+    another ending depending on the
+    choices.
+    """
+    print("""
+    You enter a dark room. The light
+    of your torch
+    """)
+
+    while True:
+        print("Please choose (light/back):\n")
+        choice_ending = input(">> ").lower()
+        try:
+            if choice_ending == "light":
+                print("""
+    You light up the fire in the middle
+    of the room and a mural with beautiful
+    carvings is revealed. The carvings are
+    of two women hugging each other. 
     
+    It seems to be some sort of tale, as you
+    find text written under the image of the
+    two women.
+
+    Curiously you approach the mural as you
+    suddenly hear a faint noise.
+
+    Was that a woman? Could it be the princess?
+
+    Will you read the text or leave?
+                """)
+                while True:
+                    print("Please choose (read/leave):\n")
+                    choice_read = input(">> ").lower()
+                    try:
+                        if choice_read == "read":
+                            print("""
+    It seems to be a tale of 2 sisters,
+    twins, divided by birth. One grew up
+    to become a princess, the other was
+    given away as an offer of peace.
+
+    They grow up seperated from each
+    other but make up their minds
+    to go on an adventure to find 
+    their other half.
+
+    You know of this tale and the
+    melody that accompanies it,
+    you are a bard after all. It is
+    however surprising to find the
+    tale carved onto a wall in a
+    cave at Mount Gylia..
+
+    You decide to study the wall
+    a bit more before take the path
+    back to the previous room, as 
+    there isn't anything else left
+    to explore.
+
+>> RETURN TO PREVIOUS ROOM
+                            """)
+                            room_four()
+                            break
+                        elif choice_read == "leave":
+                            print("""
+    No! You don't really have time
+    for this! The princess needs
+    you and the faster you get to
+    the evil witche's lair the
+    better.
+
+    You decide to leave the room 
+    and return to the previous
+    room in a hurry.
+
+>> RETURN TO PREVIOUS ROOM
+                            """)
+                            room_four()
+                            break
+                        else:
+                            raise ValueError("This is not a valid option.")
+                    except ValueError as e:
+                        print(e)
+                break
+            elif choice_ending == "back":
+                print("""
+    Best you leave everything as is. It
+    could be a trap after all and so you
+    must excercise caution.
+
+    As fun as exploring can be, you feel
+    like you do not have enough time anyway.
+    You must find the princess and so you
+    decide to go back to the preivous room.
+
+>> RETURN TO PREVIOUS ROOM
+    __________________________________
+                """)
+                room_four()
+                break
+            else:
+                raise ValueError("This is not a valid option.")
+        except ValueError as e:
+            print(e)
+
+
 
 def game_over_trap():
     """
