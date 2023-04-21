@@ -9,6 +9,27 @@
 # in room_two() and in room_three().
 torch = False
 
+def tale():
+    
+
+def game_over_trap():
+    """
+    One of the endings the player
+    unlocks.
+    """
+    print("""
+    A trapdoor opens under your feet
+    and you cannot react fast enough
+    to step down from it.
+
+    Since you are holding the harp
+    tightly in your arms, you cannot
+    grab onto the ledge.
+
+    And so you fall into your death..
+    """)
+    game_over()
+
 def treasure():
     """
     Let's players make a choice, validates
