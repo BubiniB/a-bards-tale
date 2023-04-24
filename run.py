@@ -8,6 +8,21 @@
 # Global variable, which is later used
 # in room_two() and in room_three().
 torch = False
+two_sisters = False
+
+def evil_witch():
+    """
+    The last room/scene in the game.
+    Players get to make a choice and
+    it is validated, and affects the
+    outcome of the game. Checks for
+    global variable two_sisters and
+    presents another choice if set to
+    True.
+    """
+    print("""
+    The evil witch is waiting for you!
+    """)
 
 def tale():
     """
@@ -74,6 +89,8 @@ def tale():
 
 >> RETURN TO PREVIOUS ROOM
                             """)
+                            global two_sisters
+                            two_sisters = True
                             room_four()
                             break
                         elif choice_read == "leave":
@@ -248,19 +265,7 @@ def room_four():
     choice. Validates choices.
     """
     print("""
-    You have made past the giant spider
-    and you feel relieved. As you enter 
-    the next room, another crossroad
-    opens up. You take a break
-    and collect your thoughts.
-    
-    This adventure has been more challenging
-    than anything you have ever done
-    in your entire life. But there is
-    no turning back now!
-
-    You take a big breath. Time to
-    move on!
+    You come to a crossroad.
 
     Will you go to the left, up or
     down?
@@ -279,12 +284,26 @@ def room_four():
                 evil_witch()
                 break
             elif choice_path == "left":
-                print("""
+                global two_sisters
+                if two_sisters == True:
+                    print("""
+    You return to the mural and study the
+    carvings again, trying to imprint
+    the image in your memory.
+
+    You then decide to return to the previous
+    room.
+
+>> RETURN TO PREVIOUS ROOM.
+    ____________________________________
+                    """)
+                else:
+                    print("""
     You choose the left path .
     __________________________________
-                """)
-                tale()
-                break
+                    """)
+                    tale()
+                    break
             elif choice_path == "down":
                 print("""
     As you continue on this path you
@@ -520,6 +539,18 @@ def giant_spider():
                 print("""
     You choose the path to your left.
     _________________________________
+                
+    You have made past the giant spider
+    and you feel relieved. You take a break
+    and collect your thoughts.
+    
+    This adventure has been more challenging
+    than anything you have ever done
+    in your entire life. But there is
+    no turning back now!
+
+    You take a big breath. Time to
+    move on!
                 """)
                 room_four()
                 break
