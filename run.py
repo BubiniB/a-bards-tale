@@ -22,7 +22,69 @@ def evil_witch():
     """
     print("""
     The evil witch is waiting for you!
+    Epic dialogue
+    time to act
     """)
+    global two_sisters
+    if two_sisters == True:
+        print("""
+    You don't know why, but you
+    cannot shake of the mural and
+    tale of the Two Sisters. You
+    feel a sudden urge to sing.
+
+    Should you sing? Or would it
+    be better to fight? The witch
+    does not seem that friendly
+    after all.. You could also
+    try and run. With more
+    preparation and fighting
+    experience you could maybe
+    stand a better chance.
+        """)
+    else:
+        print("""
+    What should you do? Take
+    your sword and challenge the
+    witch to a fight or run away?
+    With more preparation and
+    fighting experience you could
+    maybe stand a better chance.
+        """)
+    while True:
+        if two_sisters == True:
+            print("Please choose (fight/run/sing):\n")
+            choice = input(">> ").lower()
+        else:
+            print("Please choose (fight/run):\n")
+            choice = input(">> ").lower()
+        try:
+            if choice == "fight":
+                print("""
+                You fight
+                """)
+                rescue_princess()
+                break
+            elif choice == "run":
+                print("""
+                The witch snipes you
+                """)
+                mission_failed()
+                break
+            elif choice == "sing" and two_sisters:
+                print("""
+                Witch starts crying
+                calm
+                princess comes and hugs
+                """)
+                happiness()
+                break
+            else:
+                raise ValueError("This is not a valid option.")
+        except ValueError as e:
+            print(e)
+
+
 
 def tale():
     """
@@ -361,11 +423,10 @@ def game_over_lost_torch():
     being shrouded in darkness. You
     decide to make a run for it.
 
-    The giant spider seems to be
-    however faster and catches you
-    almost immediatly. You feel a
-    sting in your chest and lose
-    consciousness..
+    The giant spider is however 
+    faster and catches you almost
+    immediatly. You feel a sting in 
+    your chest and lose consciousness..
 
     And this is how you became spider
     dinner..
