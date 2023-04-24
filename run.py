@@ -10,6 +10,35 @@
 torch = False
 two_sisters = False
 
+def game_over():
+    """
+    Let's players know the game has
+    come to an end and gives choice
+    to restart or end game.
+    """
+
+def happiness():
+    """
+    One of the endings in the game,
+    unlocked if global variable
+    two_sisters is set to True and
+    player chose to sing in evil_witch().
+    """
+
+def rescue_princess():
+    """
+    One of the endings in the game,
+    unlocked if player chose to fight
+    in evil_witch().
+    """
+
+def mission_failed():
+    """
+    One of the endings in the game,
+    unlocked if player chose to run
+    in evil_witch().
+    """
+
 def evil_witch():
     """
     The last room/scene in the game.
