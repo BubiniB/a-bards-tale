@@ -1,9 +1,15 @@
-# This is my text adventure game:
+# This is my text adventure 
+# game:
 # A Bard's Tale
-# The code for this game is structured in such a way that each
-# room/scene the player is in, is its own function. For the main
-# function to work, the game flow is coded in reverse order
-# (the first scenes appear last in the code, the game end in the beginning).
+# The code for this game is 
+# structured in such a way that 
+# each room/scene the player is
+# in, is its own function. For 
+# the main function to work,
+# the game flow is coded in reverse
+# order (the first scenes appear last
+# in the code, the game end in the 
+# beginning).
 
 # Used to clear terminal for Windows
 # Mac and Linux.
@@ -12,10 +18,22 @@ from os import system, name
 # Used for delaying clear terminal
 from time import sleep
 
+# Used for creating a typing text effect
+import time,sys
+
+
+def typing_print(text):
+    for character in text:
+        sys.stdout.write(character)
+        sys.stdout.flush()
+        time.sleep(0.02)
+
+
 # Global variables, which is later used
 # in room_two() and in room_three().
 torch = False
 two_sisters = False
+
 
 def clear_terminal():
     sleep(4)
@@ -24,13 +42,14 @@ def clear_terminal():
     else:
         _ = system('clear')
 
+
 def game_over():
     """
     Let's players know the game has
     come to an end and gives choice
     to restart or end game.
     """
-    print("""
+    typing_print("""
     And this is how the tale of Esmond
     Covendown ends..
 
@@ -39,25 +58,26 @@ def game_over():
     Do you want to play again?
     """)
     while True:
-        print("Please choose (yes/no):\n")
+        typing_print("Please choose (yes/no):\n")
         choice_continue = input(">> ").lower()
         try:
             if choice_continue == "yes" or choice_continue == "y":
-                print("""
+                typing_print("""
 >> RESTARTING GAME
                 """)
                 clear_terminal()
                 main()
                 break
             elif choice_continue == "no" or choice_continue =="n":
-                print("""
+                typing_print("""
     Thank you for playing! Goodbye!
                 """)
                 break
             else:
                 raise ValueError("This is not a valid option.")
         except ValueError as e:
-            print(e)        
+            typing_print(e)        
+
 
 def happiness():
     """
@@ -67,6 +87,7 @@ def happiness():
     player chose to sing in evil_witch().
     """
 
+
 def rescue_princess():
     """
     One of the endings in the game,
@@ -74,12 +95,14 @@ def rescue_princess():
     in evil_witch().
     """
 
+
 def mission_failed():
     """
     One of the endings in the game,
     unlocked if player chose to run
     in evil_witch().
     """
+
 
 def evil_witch():
     """
@@ -91,14 +114,14 @@ def evil_witch():
     presents another choice if set to
     True.
     """
-    print("""
+    typing_print("""
     The evil witch is waiting for you!
     Epic dialogue
     time to act
     """)
     global two_sisters
     if two_sisters == True:
-        print("""
+        typing_print("""
     You don't know why, but you
     cannot shake of the mural and
     tale of the Two Sisters. You
@@ -114,7 +137,7 @@ def evil_witch():
     stand a better chance.
         """)
     else:
-        print("""
+        typing_print("""
     What should you do? Take
     your sword and challenge the
     witch to a fight or run away?
@@ -124,26 +147,26 @@ def evil_witch():
         """)
     while True:
         if two_sisters == True:
-            print("Please choose (fight/run/sing):\n")
+            typing_print("Please choose (fight/run/sing):\n")
             choice = input(">> ").lower()
         else:
-            print("Please choose (fight/run):\n")
+            typing_print("Please choose (fight/run):\n")
             choice = input(">> ").lower()
         try:
             if choice == "fight":
-                print("""
+                typing_print("""
                 You fight
                 """)
                 rescue_princess()
                 break
             elif choice == "run":
-                print("""
+                typing_print("""
                 The witch snipes you
                 """)
                 mission_failed()
                 break
             elif choice == "sing" and two_sisters:
-                print("""
+                typing_print("""
                 Witch starts crying
                 calm
                 princess comes and hugs
@@ -153,7 +176,7 @@ def evil_witch():
             else:
                 raise ValueError("This is not a valid option.")
         except ValueError as e:
-            print(e)
+            typing_print(e)
 
 
 def tale():
@@ -163,17 +186,17 @@ def tale():
     another ending depending on the
     choices.
     """
-    print("""
+    typing_print("""
     You enter a dark room. The light
     of your torch
     """)
 
     while True:
-        print("Please choose (light/back):\n")
+        typing_print("Please choose (light/back):\n")
         choice_ending = input(">> ").lower()
         try:
             if choice_ending == "light":
-                print("""
+                typing_print("""
     You light up the fire in the middle
     of the room and a mural with beautiful
     carvings is revealed. The carvings are
@@ -191,11 +214,11 @@ def tale():
     Will you read the text or leave?
                 """)
                 while True:
-                    print("Please choose (read/leave):\n")
+                    typing_print("Please choose (read/leave):\n")
                     choice_read = input(">> ").lower()
                     try:
                         if choice_read == "read":
-                            print("""
+                            typing_print("""
     It seems to be a tale of 2 sisters,
     twins, divided by birth. One grew up
     to become a princess, the other was
@@ -226,7 +249,7 @@ def tale():
                             room_four()
                             break
                         elif choice_read == "leave":
-                            print("""
+                            typing_print("""
     No! You don't really have time
     for this! The princess needs
     you and the faster you get to
@@ -244,10 +267,10 @@ def tale():
                         else:
                             raise ValueError("This is not a valid option.")
                     except ValueError as e:
-                        print(e)
+                        typing_print(e)
                 break
             elif choice_ending == "back":
-                print("""
+                typing_print("""
     Best you leave everything as is. It
     could be a trap after all and so you
     must excercise caution.
@@ -265,8 +288,7 @@ def tale():
             else:
                 raise ValueError("This is not a valid option.")
         except ValueError as e:
-            print(e)
-
+            typing_print(e)
 
 
 def game_over_trap():
@@ -274,7 +296,7 @@ def game_over_trap():
     One of the endings the player
     unlocks.
     """
-    print("""
+    typing_print("""
     A trapdoor opens under your feet
     and you cannot react fast enough
     to step down from it.
@@ -287,13 +309,14 @@ def game_over_trap():
     """)
     game_over()
 
+
 def treasure():
     """
     Let's players make a choice, validates
     choices and runs one of multiple
     endings, depending on players' choice
     """
-    print("""
+    typing_print("""
     There are golden objects everywhere
     scattered across the room. You
     have never seen so much gold in
@@ -321,11 +344,11 @@ def treasure():
     """)
 
     while True:
-        print("Please choose (y/n):\n")
+        typing_print("Please choose (y/n):\n")
         choice_harp = input(">> ").lower()
         try:
             if choice_harp == "y":
-                print("""
+                typing_print("""
     The harp is just too beautiful
     to be left behind. You must
     simply have it.
@@ -340,7 +363,7 @@ def treasure():
                 game_over_trap()
                 break
             elif choice_harp == "yes":
-                print("""
+                typing_print("""
     The harp is just too beautiful
     to be left behind. You must
     simply have it.
@@ -355,7 +378,7 @@ def treasure():
                 game_over_trap()
                 break
             elif choice_harp == "n":
-                print("""
+                typing_print("""
     No! There is no point in being
     greedy! You are here to rescue
     the princess and not on a
@@ -371,7 +394,7 @@ def treasure():
                 room_four()
                 break
             elif choice_torch == "no":
-                print("""
+                typing_print("""
     No! There is no point in being
     greedy! You are here to rescue
     the princess and not on a
@@ -389,14 +412,15 @@ def treasure():
             else:
                 raise ValueError("This is not a valid option.")
         except ValueError as e:
-            print(e)
+            typing_print(e)
+
 
 def room_four():
     """
     Progresses story and let's players make a
     choice. Validates choices.
     """
-    print("""
+    typing_print("""
     You come to a crossroad.
 
     Will you go to the left, up or
@@ -404,11 +428,11 @@ def room_four():
     """)
 
     while True:
-        print("Please choose (left/up/down):\n")
+        typing_print("Please choose (left/up/down):\n")
         choice_path = input(">> ").lower()
         try:
             if choice_path == "up":
-                print("""
+                typing_print("""
     You continue on the path in
     front of you.
     _________________________________
@@ -418,7 +442,7 @@ def room_four():
             elif choice_path == "left":
                 global two_sisters
                 if two_sisters == True:
-                    print("""
+                    typing_print("""
     You return to the mural and study the
     carvings again, trying to imprint
     the image in your memory.
@@ -430,14 +454,14 @@ def room_four():
     ____________________________________
                     """)
                 else:
-                    print("""
+                    typing_print("""
     You choose the left path .
     __________________________________
                     """)
                     tale()
                     break
             elif choice_path == "down":
-                print("""
+                typing_print("""
     As you continue on this path you
     see something glittering and shining.
     You seem to have found the treasure
@@ -447,7 +471,7 @@ def room_four():
                 treasure()
                 break
             elif choice_path == "right":
-                print("""
+                typing_print("""
     Hey! Don't you remember?
 
     NO TURNING BACK NOW!
@@ -456,14 +480,14 @@ def room_four():
             else:
                 raise ValueError("This is not a valid option.")
         except ValueError as e:
-            print(e)
+            typing_print(e)
 
 
 def game_over_lynched():
     """
     One of the endings in the game
     """
-    print("""
+    typing_print("""
     You don't get a chance to
     complete your song, as the
     angry mob of goblins seems
@@ -475,11 +499,12 @@ def game_over_lynched():
     """)
     game_over()
 
+
 def game_over_lost_torch():
     """
     One of the endings in the game
     """
-    print("""
+    typing_print("""
     You know what hideous monster
     is waiting for you in this
     room.. But this time you don't
@@ -503,13 +528,14 @@ def game_over_lost_torch():
     """)
     game_over()
 
+
 def goblins():
     """
     Let's players make choices, which
     lead to different outcomes and
     validates these.
     """
-    print("""
+    typing_print("""
     You enter the room and notice almost
     immediatly the group of 5 goblins
     in one of the corners of the room.
@@ -528,11 +554,11 @@ def goblins():
     """)
 
     while True:
-        print("Please choose (fight/run/sing):\n")
+        typing_print("Please choose (fight/run/sing):\n")
         choice_action = input(">> ").lower()
         try:
             if choice_action == "fight":
-                print("""
+                typing_print("""
     You aren't a very skilled fighter. In
     order to be able to fight you toss away
     your torch and ready your sword.
@@ -566,7 +592,7 @@ def goblins():
                 game_over_lost_torch()
                 break
             elif choice_action == "run":
-                print("""
+                typing_print("""
     You aren't a very skilled fighter since
     this is your first adventure.
 
@@ -584,7 +610,7 @@ def goblins():
                 room_three()
                 break
             elif choice_action == "sing":
-                print("""
+                typing_print("""
     Right! You could surprise them
     with a song! Maybe this will
     stun them and then you have a
@@ -600,13 +626,14 @@ def goblins():
             else:
                 raise ValueError("This is not a valid option.")
         except ValueError as e:
-            print(e)
+            typing_print(e)
+
 
 def dead_end_one():
     """
     Sends the player back to room_three.
     """
-    print("""
+    typing_print("""
     As you enter the room, you are
     greeted by a wall.
 
@@ -618,12 +645,13 @@ def dead_end_one():
     """)
     room_three()
 
+
 def giant_spider():
     """
     Progresses story and let's players make a
     choice. Validates choices.
     """
-    print("""
+    typing_print("""
     As you continue on your path
     you notice how everything keeps
     getting darker. But with the torch
@@ -648,11 +676,11 @@ def giant_spider():
     """)
 
     while True:
-        print("Please choose (up/left/right):\n")
+        typing_print("Please choose (up/left/right):\n")
         choice_path = input(">> ").lower()
         try:
             if choice_path == "up":
-                print("""
+                typing_print("""
     You continue on the path in
     front of you.
     _________________________________
@@ -660,14 +688,14 @@ def giant_spider():
                 goblins()
                 break
             elif choice_path == "right":
-                print("""
+                typing_print("""
     You choose the path to your right.
     __________________________________
                 """)
                 dead_end_one()
                 break
             elif choice_path == "left":
-                print("""
+                typing_print("""
     You choose the path to your left.
     _________________________________
                 
@@ -686,20 +714,20 @@ def giant_spider():
                 room_four()
                 break
             elif choice_path == "down":
-                print("""
+                typing_print("""
     You don't want to turn back!
                 """)
             else:
                 raise ValueError("This is not a valid option.")
         except ValueError as e:
-            print(e)
+            typing_print(e)
         
 
 def game_over_darkness():
     """
     Runs another ending for players.
     """
-    print("""
+    typing_print("""
     Darkness engulfs you.
 
     Eerie noises and sounds are closing
@@ -713,12 +741,13 @@ def game_over_darkness():
     """)
     game_over()
 
+
 def darkness():
     """
     Let's the player make a choice
     and validates it.
     """
-    print("""
+    typing_print("""
     As you continue on your path you 
     notice how everything keeps getting
     darker. You continue until everything
@@ -733,11 +762,11 @@ def darkness():
     """)
 
     while True:
-        print("Please choose (up/down):\n")
+        typing_print("Please choose (up/down):\n")
         choice_darkness = input(">> ").lower()
         try:
             if choice_darkness == "up":
-                print("""
+                typing_print("""
     No! You shall not be remembered as a
     coward!
 
@@ -749,7 +778,7 @@ def darkness():
                 game_over_darkness()
                 break
             elif choice_darkness == "down":
-                print("""
+                typing_print("""
     You feel like a coward.. But how are
     you supposed to rescue somebody without
     even seeing where to go?
@@ -762,7 +791,7 @@ def darkness():
             else:
                 raise ValueError("This is not a valid option.")
         except ValueError as e:
-            print(e)
+            typing_print(e)
 
 
 def room_three():
@@ -777,6 +806,7 @@ def room_three():
     else:
         darkness()
 
+
 def item_torch():
     """
     Alters the global variable torch and sets it
@@ -784,6 +814,7 @@ def item_torch():
     """
     global torch
     torch = True
+
 
 def room_two():
     """
@@ -795,7 +826,7 @@ def room_two():
    """ 
     global torch
     if torch == True:
-        print("""
+        typing_print("""
     You do not need to enter this room
     again.
 
@@ -807,7 +838,7 @@ def room_two():
         """)
         room_one()
     else:
-        print("""
+        typing_print("""
    You follow the right path and suddenly
    you notice how everything seems to be getting
    lighter. As you enter the room at the end
@@ -819,11 +850,11 @@ def room_two():
         """)
 
         while True:
-            print("Please choose (y/n):\n")
+            typing_print("Please choose (y/n):\n")
             choice_torch = input(">> ").lower()
             try:
                 if choice_torch == "y":
-                    print("""
+                    typing_print("""
     You could really use a little
     more light and decide to take
     the torch with you.
@@ -843,7 +874,7 @@ def room_two():
                     room_one()
                     break
                 elif choice_torch == "yes":
-                    print("""
+                    typing_print("""
     You could really use a little
     more light and decide to take
     the torch with you.
@@ -863,7 +894,7 @@ def room_two():
                     room_one()
                     break
                 elif choice_torch == "n":
-                    print("""
+                    typing_print("""
     You are afraid of taking something
     which is not yours and decide to
     to leave the torch where it is.
@@ -879,7 +910,7 @@ def room_two():
                     room_one()
                     break
                 elif choice_torch == "no":
-                    print("""
+                    typing_print("""
     You are afraid of taking something
     which is not yours and decide to
     to leave the torch where it is.
@@ -897,14 +928,15 @@ def room_two():
                 else:
                     raise ValueError("This is not a valid option.")
             except ValueError as e:
-                print(e)
+                typing_print(e)
+
 
 def room_one():
     """
     Let's players choose which directions to go
     and validates input.
     """
-    print("""
+    typing_print("""
     You follow the path until you come to a
     crossroad.
 
@@ -916,11 +948,11 @@ def room_one():
     """)
 
     while True:
-        print("Please choose (right/up):\n")
+        typing_print("Please choose (right/up):\n")
         directions_room_one = input(">> ")
         try:
             if directions_room_one.lower() == "right":
-                print("""
+                typing_print("""
     You decide to explore the path
     to your right.
     _______________________________
@@ -928,25 +960,26 @@ def room_one():
                 room_two()
                 break
             elif directions_room_one.lower() == "up":
-                print("""
+                typing_print("""
      You decide to continue onward.
      ______________________________
                 """)
                 room_three()
                 break
             elif directions_room_one.lower() == "left":
-                print("""
+                typing_print("""
     Maybe you should try the left!
     *OUCH!*
     You hit your head on the wall.
     _______________________________
                 """)
             elif directions_room_one.lower() == "down":
-                print("No! You cannot turn back now!")
+                typing_print("No! You cannot turn back now!")
             else:
                 raise ValueError("This is not a valid option.")
         except ValueError as e:
-            print(e)
+            typing_print(e)
+
 
 def game_over_coward():
     """
@@ -954,8 +987,9 @@ def game_over_coward():
     has the reset function, which allows players
     to play another round.
     """
-    print("coward")
+    typing_print("coward")
     game_over()
+
 
 def adventure_start():
     """
@@ -963,7 +997,7 @@ def adventure_start():
     letting the player choose directions through inputs.
     Input are validated.
     """
-    print("""
+    typing_print("""
     There are only 2 choices:
     Turn back and admit defeat
     OR
@@ -974,11 +1008,11 @@ def adventure_start():
     """)
     
     while True:
-        print("Please choose (up/down):\n")
+        typing_print("Please choose (up/down):\n")
         direction_cave = input(">> ")
         try:
             if direction_cave.lower() == "up":
-                print("""
+                typing_print("""
     You tighten the grip around
     your sword. There is no
     turning back! You will
@@ -989,7 +1023,7 @@ def adventure_start():
                 room_one()
                 break
             elif direction_cave.lower() == "down":
-                print("""
+                typing_print("""
     Maybe you were not ready
     for this challenge after all.
     Your shaking legs seem at
@@ -999,13 +1033,14 @@ def adventure_start():
                 game_over_coward()
                 break
             elif direction_cave.lower() == "right":
-                print("You cannot go there right now")
+                typing_print("You cannot go there right now")
             elif direction_cave.lower() == "left":
-                print("You cannot go there right now")
+                typing_print("You cannot go there right now")
             else:
                 raise ValueError("This is not a valid option.")
         except ValueError as e:
-            print(e)
+            typing_print(e)
+
 
 def main():
     """
@@ -1013,7 +1048,7 @@ def main():
     player immerse themselves in the game world, as well as
     start the game.
     """
-    print("""
+    typing_print("""
     Welcome to A Bard's Tale. 
     You are the famous bard Esmond
     Covendown and you are well known 
@@ -1040,5 +1075,6 @@ def main():
     you and your heart starts beating faster.
     """)
     adventure_start()
+
 
 main()
