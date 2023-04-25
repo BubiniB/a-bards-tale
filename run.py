@@ -5,10 +5,24 @@
 # function to work, the game flow is coded in reverse order
 # (the first scenes appear last in the code, the game end in the beginning).
 
-# Global variable, which is later used
+# Used to clear terminal for Windows
+# Mac and Linux.
+from os import system, name
+
+# Used for delaying clear terminal
+from time import sleep
+
+# Global variables, which is later used
 # in room_two() and in room_three().
 torch = False
 two_sisters = False
+
+def clear_terminal():
+    sleep(4)
+    if name == 'nt':
+        _ = system('cls')
+    else:
+        _ = system('clear')
 
 def game_over():
     """
@@ -16,6 +30,34 @@ def game_over():
     come to an end and gives choice
     to restart or end game.
     """
+    print("""
+    And this is how the tale of Esmond
+    Covendown ends..
+
+>> GAME OVER <<
+
+    Do you want to play again?
+    """)
+    while True:
+        print("Please choose (yes/no):\n")
+        choice_continue = input(">> ").lower()
+        try:
+            if choice_continue == "yes" or choice_continue == "y":
+                print("""
+>> RESTARTING GAME
+                """)
+                clear_terminal()
+                main()
+                break
+            elif choice_continue == "no" or choice_continue =="n":
+                print("""
+    Thank you for playing! Goodbye!
+                """)
+                break
+            else:
+                raise ValueError("This is not a valid option.")
+        except ValueError as e:
+            print(e)        
 
 def happiness():
     """
@@ -112,7 +154,6 @@ def evil_witch():
                 raise ValueError("This is not a valid option.")
         except ValueError as e:
             print(e)
-
 
 
 def tale():
