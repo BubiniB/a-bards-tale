@@ -203,11 +203,22 @@ def tale():
     """
     typing_print("""
     You enter a dark room. The light
-    of your torch
+    of your torch helps only modestly
+    but shines enough to reveal some
+    sort of fire pit close by.
+
+    You could surely light up the
+    entire room by lighting a fire
+    in the pit.
+
+    What should you do?
+
+    Will you light the fire or
+    will you leave?
     """)
 
     while True:
-        typing_print("Please choose (light/back):\n")
+        typing_print("Please choose (light/leave):\n")
         choice_ending = input(">> ").lower()
         try:
             if choice_ending == "light":
@@ -217,9 +228,9 @@ def tale():
     carvings is revealed. The carvings are
     of two women hugging each other. 
     
-    It seems to be some sort of tale, as you
-    find text written under the image of the
-    two women.
+    You find a text written under the image
+    of the two women. It seems to be some
+    sort of tale!
 
     Curiously you approach the mural as you
     suddenly hear a faint noise.
@@ -234,7 +245,7 @@ def tale():
                     try:
                         if choice_read == "read":
                             typing_print("""
-    It seems to be a tale of 2 sisters,
+    It is the tale of the 2 sisters,
     twins, divided by birth. One grew up
     to become a princess, the other was
     given away as an offer of peace.
@@ -242,22 +253,25 @@ def tale():
     They grow up seperated from each
     other but make up their minds
     to go on an adventure to find 
-    their other half.
+    their other half, until they are
+    finally united again..
 
     You know of this tale and the
     melody that accompanies it,
-    you are a bard after all. It is
-    however surprising to find the
-    tale carved onto a wall in a
+    you are a bard after all.
+    
+    It is however surprising to find
+    the tale carved onto a wall in a
     cave at Mount Gylia..
 
     You decide to study the wall
-    a bit more before take the path
+    a bit more before taking the path
     back to the previous room, as 
     there isn't anything else left
     to explore.
 
 >> RETURN TO PREVIOUS ROOM
+    _________________________________
                             """)
                             true_ending()
                             room_four()
@@ -275,6 +289,7 @@ def tale():
     room in a hurry.
 
 >> RETURN TO PREVIOUS ROOM
+    __________________________________
                             """)
                             room_four()
                             break
@@ -283,7 +298,7 @@ def tale():
                     except ValueError as e:
                         typing_print(e)
                 break
-            elif choice_ending == "back":
+            elif choice_ending == "leave":
                 typing_print("""
     Best you leave everything as is. It
     could be a trap after all and so you
@@ -315,8 +330,8 @@ def game_over_trap():
     and you cannot react fast enough
     to step down from it.
 
-    Since you are holding the harp
-    tightly in your arms, you cannot
+    Since you are holding the lyre
+    tightly in your hands, you cannot
     grab onto the ledge.
 
     And so you fall into your death..
@@ -340,9 +355,9 @@ def treasure():
     that catches your attention
     in particular:
 
-    A golden harp.
+    A golden lyre.
 
-    The harp is placed on a pedestal
+    The lyre is placed on a pedestal
     in the middle of the room. It
     looks pure and untouched.
 
@@ -353,7 +368,7 @@ def treasure():
     And who knows, it might come in
     handy?
 
-    Will you take the harp?
+    Will you take the lyre?
     Yes or no?
     """)
 
@@ -363,13 +378,13 @@ def treasure():
         try:
             if choice_lyre == "y" or choice_lyre == "yes":
                 typing_print("""
-    The harp is just too beautiful
+    The lyre is just too beautiful
     to be left behind. You must
     simply have it.
 
->> TOOK HARP
+>> TOOK LYRE
 
-    As soon as you take the harp
+    As soon as you take the lyre
     the ground starts shaking.
     This wasn't a good idea after
     all...
@@ -384,7 +399,7 @@ def treasure():
     scavenge hunt!
 
     You resist the urge to take the
-    harp with you and return to the
+    lyre with you and return to the
     previous room.
 
 >> RETURN TO PREVIOUS ROOM
