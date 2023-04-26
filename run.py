@@ -44,7 +44,7 @@ def clear_terminal():
     Mac or Linux, after 4 seconds.
     Used in game_over().
     """
-    sleep(4)
+    sleep(3)
     if name == 'nt':
         _ = system('cls')
     else:
@@ -94,7 +94,7 @@ def happiness():
     two_sisters is set to True and
     player chose to sing in evil_witch().
     """
-    print("""
+    typing_print("""
     And so the sisters fill you in.
     Calandra only wanted to be reunited
     with her sister Sera. It was never
@@ -139,7 +139,7 @@ def rescue_princess():
     unlocked if player chose to fight
     in evil_witch().
     """
-    print("""
+    typing_print("""
     The princess seems to have passed
     out. Carefully you pick her up
     and carry her to safety.
@@ -171,7 +171,7 @@ def mission_failed():
     unlocked if player chose to run
     in evil_witch().
     """
-    print("""
+    typing_print("""
     Calandra shoots a fireball
     after you, which hits you in
     the back. You die immediatly
@@ -1187,7 +1187,7 @@ def tutorial():
     """
     global tutorial_shown
     tutorial_shown = True
-    print("""
+    typing_print("""
      _____________________________________
 
     How to play the game:
@@ -1225,7 +1225,7 @@ def main():
     if not tutorial_shown:
         tutorial()
     
-    print("""
+    typing_print("""
     You are the famous bard Esmond
     Covendown and you are well known 
     around the lands of Palina for your
