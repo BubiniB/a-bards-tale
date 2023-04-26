@@ -1,15 +1,12 @@
-# This is my text adventure 
-# game:
-# A Bard's Tale
-# The code for this game is 
-# structured in such a way that 
-# each room/scene the player is
-# in, is its own function. For 
-# the main function to work,
-# the game flow is coded in reverse
-# order (the first scenes appear last
-# in the code, the game end in the 
-# beginning).
+"""
+This is my text adventure game:
+A Bard's Tale
+The code for this game is structured
+in such a way that each room/scene the
+player is in, is its own function. For
+the main function to work, the game flow
+is coded in reverse order.
+"""
 
 # Used to clear terminal for Windows
 # Mac and Linux.
@@ -19,10 +16,14 @@ from os import system, name
 from time import sleep
 
 # Used for creating a typing text effect
-import time,sys
+import time
+import sys
 
 
 def typing_print(text):
+    """
+    Let's the text appear as if it was typed.
+    """
     for character in text:
         sys.stdout.write(character)
         sys.stdout.flush()
@@ -41,7 +42,7 @@ def clear_terminal():
     """
     Clears the terminal for
     devices running on Windows,
-    Mac or Linux, after 4 seconds.
+    Mac or Linux, after 3 seconds.
     Used in game_over().
     """
     sleep(3)
@@ -84,7 +85,7 @@ def game_over():
             else:
                 raise ValueError("This is not a valid option.")
         except ValueError as e:
-            typing_print(e)        
+            typing_print(e)
 
 
 def happiness():
@@ -108,14 +109,11 @@ def happiness():
     Through hardships, Calandra had
     managed to break free, trying to
     fulfill her only wish:
-
-    To be reunited again with her
-    missing half.
+    To be reunited with her missing half.
 
     You promise to return to Castle
-    Palina and lie to the king,
-    saying that both the witch and the
-    princess had died.
+    Palina and lie to the king, that both
+    the witch and the princess had died.
 
     Sera and Calandra decide to flee
     the land and start a new life
@@ -130,14 +128,15 @@ def happiness():
     had already perished.
 
     Only you know the truth..
+
+    THE END
     """)
+    game_over()
 
 
 def rescue_princess():
     """
-    One of the endings in the game,
-    unlocked if player chose to fight
-    in evil_witch().
+    One of the endings in the game.
     """
     typing_print("""
     The princess seems to have passed
@@ -147,17 +146,14 @@ def rescue_princess():
     Back in castle Palina, the
     king and the queen have
     prepared a warm welcome for
-    you and the princess.
-
-    The celebration lasts several
-    days and you are rewarded with
-    land and gold. You are a hero!
+    you and the princess. The celebration
+    lasts several days and you are rewarded
+    with gold. You are a hero!
 
     Princess Sera however never
     returned to be her former self..
-    After the traumatizing fight
-    she became but a mere puppet,
-    apathic and lost her voice..
+    After she returned she became apathic and
+    lost her voice..
 
     If there only was something you
     could have done for her..
@@ -167,9 +163,7 @@ def rescue_princess():
 
 def mission_failed():
     """
-    One of the endings in the game,
-    unlocked if player chose to run
-    in evil_witch().
+    One of the endings in the game.
     """
     typing_print("""
     Calandra shoots a fireball
@@ -192,7 +186,7 @@ def evil_witch():
     True.
     """
     typing_print("""
-    There she is: 
+    There she is:
     The evil witch Calandra is waiting for
     you!
 
@@ -214,27 +208,18 @@ def evil_witch():
     single sound.
 
     You turn your attention back to
-    the witch, seeing her for the
-    first time up close, you are taken
-    aback:
-
-    She looks like a darker version
-    of princess Sera!!
-
-    What is this sorcery? Is she
-    trying to trick you?
+    the witch.
 
     'Bwahahaha! Puny little bard!
     Your journey ends here!
     Princess Sera belongs here'
 
-    The evil witch laughs again.
-
     You cannot just stand there,
     it is time to act!
     """)
+
     global two_sisters
-    if two_sisters == True:
+    if two_sisters is True:
         typing_print("""
     You don't know why, but you
     cannot shake of the mural and
@@ -242,25 +227,17 @@ def evil_witch():
     feel a sudden urge to sing.
 
     Should you sing? Or would it
-    be better to fight? The witch
-    does not seem that friendly
-    after all.. You could also
-    try and run. With more
-    preparation and fighting
-    experience you could maybe
-    stand a better chance.
+    be better to fight? You could also
+    try and run.
         """)
     else:
         typing_print("""
     What should you do? Take
     your sword and challenge the
     witch to a fight or run away?
-    With more preparation and
-    fighting experience you could
-    maybe stand a better chance.
         """)
     while True:
-        if two_sisters == True:
+        if two_sisters is True:
             typing_print("Please choose (fight/run/sing):\n")
             choice = input(">> ").lower()
         else:
@@ -278,20 +255,18 @@ def evil_witch():
 
     With a swift motion of her
     hands she waives the torch
-    away. 
+    away.
 
-    What she did not anicipate 
-    is your surprise attack,
-    which you managed to hide
-    while the witch was distracted
-    by the torch.
+    What she did not anicipate
+    is your surprise attack with
+    your sword.
 
     You stab the witch with your
     sword through her chest and
     her lifeless body falls to the
     ground.
 
-    The barrier vanishes and you 
+    The barrier vanishes and you
     are free to go to princess
     Sera.
                 """)
@@ -338,7 +313,7 @@ def evil_witch():
     looks you in the eyes.
 
     'Please, don't attack her!
-     She is my sister!'    
+     She is my sister!'
                 """)
                 happiness()
                 break
@@ -374,10 +349,7 @@ def tale():
     entire room by lighting a fire
     in the pit.
 
-    What should you do?
-
-    Will you light the fire or
-    will you leave?
+    Will you light the fire or leave?
     """)
 
     while True:
@@ -389,8 +361,8 @@ def tale():
     You light up the fire in the middle
     of the room and a mural with beautiful
     carvings is revealed. The carvings are
-    of two women hugging each other. 
-    
+    of two women hugging each other.
+
     You find a text written under the image
     of the two women. It seems to be some
     sort of tale!
@@ -415,23 +387,19 @@ def tale():
 
     They grow up seperated from each
     other but make up their minds
-    to go on an adventure to find 
+    to go on an adventure to find
     their other half, until they are
     finally united again..
 
     You know of this tale and the
     melody that accompanies it,
     you are a bard after all.
-    
-    It is however surprising to find
-    the tale carved onto a wall in a
-    cave at Mount Gylia..
 
-    You decide to study the wall
-    a bit more before taking the path
-    back to the previous room, as 
-    there isn't anything else left
-    to explore.
+    Why would you find this in a
+    cave at Mount Gylia..?
+
+    You leave the room, as there
+    isn't anything else left to explore.
 
 >> RETURN TO PREVIOUS ROOM
     _________________________________
@@ -447,7 +415,7 @@ def tale():
     the evil witche's lair the
     better.
 
-    You decide to leave the room 
+    You decide to leave the room
     and return to the previous
     room in a hurry.
 
@@ -602,7 +570,7 @@ def room_four():
                 break
             elif choice_path == "left":
                 global two_sisters
-                if two_sisters == True:
+                if two_sisters is True:
                     typing_print("""
     You return to the mural and study the
     carvings again, trying to imprint
@@ -679,9 +647,9 @@ def game_over_lost_torch():
     being shrouded in darkness. You
     decide to make a run for it.
 
-    The giant spider is however 
+    The giant spider is however
     faster and catches you almost
-    immediatly. You feel a sting in 
+    immediatly. You feel a sting in
     your chest and lose consciousness..
 
     This is how you became spider
@@ -828,7 +796,7 @@ def giant_spider():
     it away.
 
     There are now 3 paths available to you:
-    
+
     - In front of you
     - to your right,
     - and to your left.
@@ -859,11 +827,11 @@ def giant_spider():
                 typing_print("""
     You choose the path to your left.
     _________________________________
-                
+
     You have made past the giant spider
     and you feel relieved. You take a break
     and collect your thoughts.
-    
+
     This adventure has been more challenging
     than anything you have ever done
     in your entire life. But there is
@@ -882,7 +850,7 @@ def giant_spider():
                 raise ValueError("This is not a valid option.")
         except ValueError as e:
             typing_print(e)
-        
+
 
 def game_over_darkness():
     """
@@ -892,7 +860,7 @@ def game_over_darkness():
     Darkness engulfs you.
 
     Eerie noises and sounds are closing
-    in on you and suddenly you are 
+    in on you and suddenly you are
     getting attacked!
 
     Unable to parry the attack with your
@@ -909,7 +877,7 @@ def darkness():
     and validates it.
     """
     typing_print("""
-    As you continue on your path you 
+    As you continue on your path you
     notice how everything keeps getting
     darker. You continue until everything
     in front of you is pitch black.
@@ -918,7 +886,7 @@ def darkness():
     heard before and they send a shiver
     down your spine..
 
-    Should you conquer your fear move on 
+    Should you conquer your fear move on
     or should you turn back?
     """)
 
@@ -932,7 +900,7 @@ def darkness():
     coward!
 
     But maybe instead as a fool..?
-    
+
     Nobody wanders into the darkness
     without seeing something..
                 """)
@@ -943,7 +911,7 @@ def darkness():
     You feel like a coward.. But how are
     you supposed to rescue somebody without
     even seeing where to go?
-    
+
 >> RETURN TO PREVIOUS ROOM
     _______________________________________
                 """)
@@ -962,7 +930,7 @@ def room_three():
     or False.
     """
     global torch
-    if torch == True:
+    if torch is True:
         giant_spider()
     else:
         darkness()
@@ -984,9 +952,9 @@ def room_two():
    take the torch or leave it and validates input.
    Checks whether player has already torch to avoid
    repitition.
-   """ 
+   """
     global torch
-    if torch == True:
+    if torch is True:
         typing_print("""
     You do not need to enter this room
     again.
@@ -1000,9 +968,8 @@ def room_two():
         room_one()
     else:
         typing_print("""
-   You follow the right path and suddenly
-   you notice how everything seems to be getting
-   lighter. As you enter the room at the end
+   You follow the right path. Everything seems to be
+   getting lighter. As you enter the room at the end
    of the path, you notice why:
 
    There is a torch!
@@ -1014,18 +981,14 @@ def room_two():
             typing_print("Please choose (y/n):\n")
             choice_torch = input(">> ").lower()
             try:
-                if choice_torch == "y" or choice == "yes":
+                if choice_torch == "y" or choice_torch == "yes":
                     typing_print("""
-    You could really usemore light and
+    You could really use more light and
     decide to take the torch with you.
 
 >> TOOK TORCH
 
-    As there is nothing left to
-    explore in this room, you decide
-    to return to the previous room.
-
-    This time however with a torch!
+    There is nothing left to see here.
 
 >> RETURN TO PREVIOUS ROOM
     __________________________________
@@ -1033,16 +996,13 @@ def room_two():
                     item_torch()
                     room_one()
                     break
-                elif choice_torch == "n" or choice == "no":
+                elif choice_torch == "n" or choice_torch == "no":
                     typing_print("""
     You are afraid of taking something
     which is not yours and decide to
     to leave the torch where it is.
 
-    As there is nothing left to
-    explore in this room, you decide
-    to return to the previous room
-    without the torch!
+    There is nothing left to see here.
 
 >> RETURN TO PREVIOUS ROOM
     _________________________________
@@ -1087,13 +1047,6 @@ def room_one():
                 """)
                 room_three()
                 break
-            elif directions_room_one.lower() == "left":
-                typing_print("""
-    Maybe you should try the left!
-    *OUCH!*
-    You hit your head on the wall.
-    _______________________________
-                """)
             elif directions_room_one.lower() == "down":
                 typing_print("""
     No! You cannot turn back now!
@@ -1112,8 +1065,7 @@ def game_over_coward():
     to play another round.
     """
     typing_print("""
-    It's no use, you were not ready
-    for this challenge..
+    It's no use, you are too afraid..
 
     You turn around and leave Mount
     Gylia. There would be tales sung
@@ -1126,20 +1078,18 @@ def game_over_coward():
 
 def adventure_start():
     """
-    The first scene/room in the game. Setting the scene and
-    letting the player choose directions through inputs.
+    Lets the player choose directions through inputs.
     Input are validated.
     """
     typing_print("""
     There are only 2 choices:
-    Turn back and admit defeat
-    OR
+    Turn back and admit defeat or
     push forward and become a hero.
 
     Which direction do you choose?
     Up or down?
     """)
-    
+
     while True:
         typing_print("Please choose (up/down):\n")
         direction_cave = input(">> ")
@@ -1147,9 +1097,8 @@ def adventure_start():
             if direction_cave.lower() == "up":
                 typing_print("""
     You tighten the grip around
-    your sword. There is no
-    turning back! You will
-    rescue the princess and you
+    your sword. There is no turning back!
+    You will rescue the princess and you
     will be a hero!
     _____________________________________
 
@@ -1168,10 +1117,6 @@ def adventure_start():
                 """)
                 game_over_coward()
                 break
-            elif direction_cave.lower() == "right":
-                typing_print("You cannot go there right now")
-            elif direction_cave.lower() == "left":
-                typing_print("You cannot go there right now")
             else:
                 raise ValueError("This is not a valid option.")
         except ValueError as e:
@@ -1193,19 +1138,14 @@ def tutorial():
     How to play the game:
 
     A story will be told to you and leave
-    you with challenging choices to be made. 
-    A prompt will appear and you will have
-    to type your answer, submitting it by
-    pressing enter.
+    you with challenging choices to be made.
+    When prompted, write your answer and submit
+    it by pressing enter.
 
     How will your story end?
 
-    While exploring and journeying through
-    this world, you will come to different
-    rooms and you will have to choose,
-    which path to take. Your character is
-    always facing the north when entering
-    a new room.
+    When entering new rooms your character
+    is always facing north.
 
     Now, please enjoy a Bard's Tale.
     _____________________________________
@@ -1224,12 +1164,12 @@ def main():
     global tutorial_shown
     if not tutorial_shown:
         tutorial()
-    
+
     typing_print("""
     You are the famous bard Esmond
-    Covendown and you are well known 
+    Covendown and you are well known
     around the lands of Palina for your
-    beautiful singing voice and colorful 
+    beautiful singing voice and colorful
     expressions when singing of heroic tales
 
     However..
