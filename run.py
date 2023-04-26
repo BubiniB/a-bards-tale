@@ -359,9 +359,9 @@ def treasure():
 
     while True:
         typing_print("Please choose (y/n):\n")
-        choice_harp = input(">> ").lower()
+        choice_lyre = input(">> ").lower()
         try:
-            if choice_harp == "y":
+            if choice_lyre == "y" or choice_lyre == "yes":
                 typing_print("""
     The harp is just too beautiful
     to be left behind. You must
@@ -376,38 +376,7 @@ def treasure():
                 """)
                 game_over_trap()
                 break
-            elif choice_harp == "yes":
-                typing_print("""
-    The harp is just too beautiful
-    to be left behind. You must
-    simply have it.
-
->> TOOK HARP
-
-    As soon as you take the harp
-    the ground starts shaking.
-    This wasn't a good idea after
-    all...
-                """)
-                game_over_trap()
-                break
-            elif choice_harp == "n":
-                typing_print("""
-    No! There is no point in being
-    greedy! You are here to rescue
-    the princess and not on a
-    scavenge hunt!
-
-    You resist the urge to take the
-    harp with you and return to the
-    previous room.
-
->> RETURN TO PREVIOUS ROOM
-    _________________________________
-                    """)
-                room_four()
-                break
-            elif choice_torch == "no":
+            elif choice_lyre == "n" or choice_lyre == "no":
                 typing_print("""
     No! There is no point in being
     greedy! You are here to rescue
@@ -509,7 +478,7 @@ def game_over_lynched():
     art of singing.
 
     They swing their weapons at you
-    and strike you to death.
+    and strike you to death..
     """)
     game_over()
 
@@ -537,7 +506,7 @@ def game_over_lost_torch():
     immediatly. You feel a sting in 
     your chest and lose consciousness..
 
-    And this is how you became spider
+    This is how you became spider
     dinner..
     """)
     game_over()
@@ -558,8 +527,10 @@ def goblins():
 
     Before you even get a chance to make
     a choice, the goblins notice you
-    and start running towards you. They
-    don't seem nice..
+    and start running towards you. You are
+    scared and tighten the grip around
+    your sword. They don't seem nice.. But
+    maybe a song would cheer them up?
 
     What should you do?
         - Fight
@@ -601,8 +572,6 @@ def goblins():
 >> RETURN TO PREVIOUS ROOM
     __________________________________
                 """)
-                global torch
-                torch = False
                 game_over_lost_torch()
                 break
             elif choice_action == "run":
@@ -915,7 +884,6 @@ def room_one():
     and validates input.
     """
     typing_print("""
-    
     The path has now split into two:
     You can continue to the right,
     or simply move onward.
