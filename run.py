@@ -30,7 +30,9 @@ def typing_print(text):
 
 
 # Global variables, which is later used
-# in room_two() and in room_three().
+# in tutorial(), room_two() and in
+# room_three().
+tutorial_shown = False
 torch = False
 two_sisters = False
 
@@ -1014,9 +1016,8 @@ def room_two():
             try:
                 if choice_torch == "y" or choice == "yes":
                     typing_print("""
-    You could really use a little
-    more light and decide to take
-    the torch with you.
+    You could really usemore light and
+    decide to take the torch with you.
 
 >> TOOK TORCH
 
@@ -1177,15 +1178,17 @@ def adventure_start():
             typing_print(e)
 
 
-def main():
+def tutorial():
     """
-    The main function of this game. Sets the scene and let's
-    player immerse themselves in the game world, as well as
-    start the game.
+    Sets tutorial_shown to True, which
+    allows to skip it if the player has
+    to restart the game and seen the tutorial
+    before.
     """
-    typing_print("""
-    Welcome to A Bard's Tale.
-    _____________________________________
+    global tutorial_shown
+    tutorial_shown = True
+    print("""
+     _____________________________________
 
     How to play the game:
 
@@ -1206,7 +1209,23 @@ def main():
 
     Now, please enjoy a Bard's Tale.
     _____________________________________
+    """)
 
+
+def main():
+    """
+    The main function of this game. Sets the scene and let's
+    player immerse themselves in the game world, as well as
+    start the game.
+    """
+    typing_print("""
+    Welcome to A Bard's Tale.
+    """)
+    global tutorial_shown
+    if not tutorial_shown:
+        tutorial()
+    
+    print("""
     You are the famous bard Esmond
     Covendown and you are well known 
     around the lands of Palina for your
@@ -1230,7 +1249,7 @@ def main():
     You are greeted by the entrance of the
     giant cave.. An eerie feeling befalls
     you and your heart starts beating faster.
-    """)
+        """)
     adventure_start()
 
 
