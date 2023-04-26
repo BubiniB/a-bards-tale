@@ -915,9 +915,7 @@ def room_one():
     and validates input.
     """
     typing_print("""
-    You follow the path until you come to a
-    crossroad.
-
+    
     The path has now split into two:
     You can continue to the right,
     or simply move onward.
@@ -952,7 +950,10 @@ def room_one():
     _______________________________
                 """)
             elif directions_room_one.lower() == "down":
-                typing_print("No! You cannot turn back now!")
+                typing_print("""
+    No! You cannot turn back now!
+    You are done being a coward!
+                """)
             else:
                 raise ValueError("This is not a valid option.")
         except ValueError as e:
@@ -965,7 +966,16 @@ def game_over_coward():
     has the reset function, which allows players
     to play another round.
     """
-    typing_print("coward")
+    typing_print("""
+    It's no use, you were not ready
+    for this challenge..
+
+    You turn around and leave Mount
+    Gylia. There would be tales sung
+    about your cowardice and that is
+    how you left your mark in this
+    world..
+    """)
     game_over()
 
 
@@ -997,6 +1007,9 @@ def adventure_start():
     rescue the princess and you
     will be a hero!
     _____________________________________
+
+    You follow the path until you come to a
+    crossroad.
                 """)
                 room_one()
                 break
@@ -1027,7 +1040,29 @@ def main():
     start the game.
     """
     typing_print("""
-    Welcome to A Bard's Tale. 
+    Welcome to A Bard's Tale.
+    _____________________________________
+
+    How to play the game:
+
+    A story will be told to you and leave
+    you with challenging choices to be made. 
+    A prompt will appear and you will have
+    to type your answer, submitting it by
+    pressing enter.
+
+    How will your story end?
+
+    While exploring and journeying through
+    this world, you will come to different
+    rooms and you will have to choose,
+    which path to take. Your character is
+    always facing the north when entering
+    a new room.
+
+    Now, please enjoy a Bard's Tale.
+    _____________________________________
+
     You are the famous bard Esmond
     Covendown and you are well known 
     around the lands of Palina for your
@@ -1038,8 +1073,8 @@ def main():
 
     The thrill of adventure is calling to you
     when you hear that the beautiful princess
-    Blubb has been captured by the evil witch
-    Blabb.
+    Sera has been captured by the evil witch
+    Calandra.
 
     This is your chance to prove to the world
     that you are not but a mere bard..
