@@ -100,6 +100,29 @@ def rescue_princess():
     unlocked if player chose to fight
     in evil_witch().
     """
+    print("""
+    The princess seems to have passed
+    out. Carefully you pick her up
+    and carry her to safety.
+
+    Back in castle Palina, the
+    king and the queen have
+    prepared a warm welcome for
+    you and the princess.
+
+    The celebration lasts several
+    days and you are rewarded with
+    land and gold. You are a hero!
+
+    Princess Sera however never
+    returned to be her former self..
+    After the traumatizing fight
+    she became but a mere puppet,
+    apathic and lost her voice..
+
+    If there only was something you
+    could have done for her..
+    """)
 
 
 def mission_failed():
@@ -108,6 +131,9 @@ def mission_failed():
     unlocked if player chose to run
     in evil_witch().
     """
+    print("""
+    
+    """)
 
 
 def evil_witch():
@@ -121,9 +147,46 @@ def evil_witch():
     True.
     """
     typing_print("""
-    The evil witch is waiting for you!
-    Epic dialogue
-    time to act
+    There she is: 
+    The evil witch Calandra is waiting for
+    you!
+
+    You see the beautiful princess
+    Sera far in the distance, waiving
+    her arms. She wants to run towards
+    you and the witch, but the witch
+    just snaps her fingers and starts
+    laughing.
+
+    Some sort of transparent wall
+    seems to stop the princess in
+    her way. You see how she
+    desperately tries to smash the
+    wall by hitting it with her bare
+    hands but to no avail. Her screams
+    cannot leave the barrier behind
+    her and you don't hear even a
+    single sound.
+
+    You turn your attention back to
+    the witch, seeing her for the
+    first time up close, you are taken
+    aback:
+
+    She looks like a darker version
+    of princess Sera!!
+
+    What is this sorcery? Is she
+    trying to trick you?
+
+    'Bwahahaha! Puny little bard!
+    Your journey ends here!
+    Princess Sera belongs here'
+
+    The evil witch laughs again.
+
+    You cannot just stand there,
+    it is time to act!
     """)
     global two_sisters
     if two_sisters == True:
@@ -161,7 +224,31 @@ def evil_witch():
         try:
             if choice == "fight":
                 typing_print("""
-                You fight
+    You decide to fight Calandra.
+    In a surprise motion you toss
+    your torch towrds the witch.
+
+    'Do you really think you can
+    beat me with a torch?'
+
+    With a swift motion of her
+    hands she waives the torch
+    away. 
+
+    What she did not anicipate 
+    is your surprise attack,
+    which you managed to hide
+    while the witch was distracted
+    by the torch.
+
+    You stab the witch with your
+    sword through her chest and
+    her lifeless body falls to the
+    ground.
+
+    The barrier vanishes and you 
+    are free to go to princess
+    Sera.
                 """)
                 rescue_princess()
                 break
