@@ -259,8 +259,7 @@ def tale():
 
 >> RETURN TO PREVIOUS ROOM
                             """)
-                            global two_sisters
-                            two_sisters = True
+                            true_ending()
                             room_four()
                             break
                         elif choice_read == "leave":
@@ -868,7 +867,7 @@ def room_two():
             typing_print("Please choose (y/n):\n")
             choice_torch = input(">> ").lower()
             try:
-                if choice_torch == "y":
+                if choice_torch == "y" or choice == "yes":
                     typing_print("""
     You could really use a little
     more light and decide to take
@@ -888,43 +887,7 @@ def room_two():
                     item_torch()
                     room_one()
                     break
-                elif choice_torch == "yes":
-                    typing_print("""
-    You could really use a little
-    more light and decide to take
-    the torch with you.
-
->> TOOK TORCH
-
-    As there is nothing left to
-    explore in this room, you decide
-    to return to the previous room.
-
-    This time however with a torch!
-
->> RETURN TO PREVIOUS ROOM
-    __________________________________
-                    """)
-                    item_torch()
-                    room_one()
-                    break
-                elif choice_torch == "n":
-                    typing_print("""
-    You are afraid of taking something
-    which is not yours and decide to
-    to leave the torch where it is.
-
-    As there is nothing left to
-    explore in this room, you decide
-    to return to the previous room
-    without the torch!
-
->> RETURN TO PREVIOUS ROOM
-    _________________________________
-                    """)
-                    room_one()
-                    break
-                elif choice_torch == "no":
+                elif choice_torch == "n" or choice == "no":
                     typing_print("""
     You are afraid of taking something
     which is not yours and decide to
