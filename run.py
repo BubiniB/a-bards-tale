@@ -26,7 +26,7 @@ def typing_print(text):
     for character in text:
         sys.stdout.write(character)
         sys.stdout.flush()
-        time.sleep(0.02)
+        time.sleep(0.04)
 
 
 # Global variables, which is later used
@@ -36,6 +36,12 @@ two_sisters = False
 
 
 def clear_terminal():
+    """
+    Clears the terminal for
+    devices running on Windows,
+    Mac or Linux, after 4 seconds.
+    Used in game_over().
+    """
     sleep(4)
     if name == 'nt':
         _ = system('cls')
@@ -68,7 +74,7 @@ def game_over():
                 clear_terminal()
                 main()
                 break
-            elif choice_continue == "no" or choice_continue =="n":
+            elif choice_continue == "no" or choice_continue == "n":
                 typing_print("""
     Thank you for playing! Goodbye!
                 """)
@@ -177,6 +183,15 @@ def evil_witch():
                 raise ValueError("This is not a valid option.")
         except ValueError as e:
             typing_print(e)
+
+
+def true_ending():
+    """
+    Sets global variable two_sisters
+    to True.
+    """
+    global two_sisters
+    two_sisters = True
 
 
 def tale():
