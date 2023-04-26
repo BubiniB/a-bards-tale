@@ -92,6 +92,43 @@ def happiness():
     two_sisters is set to True and
     player chose to sing in evil_witch().
     """
+    print("""
+    And so the sisters fill you in.
+    Calandra only wanted to be reunited
+    with her sister Sera. It was never
+    her intention to hurt her.
+
+    And Sera had no intention of returning
+    to her parents, which so easily
+    could give away her sister to an
+    evil force.
+
+    Through hardships, Calandra had
+    managed to break free, trying to
+    fulfill her only wish:
+
+    To be reunited again with her
+    missing half.
+
+    You promise to return to Castle
+    Palina and lie to the king,
+    saying that both the witch and the
+    princess had died.
+
+    Sera and Calandra decide to flee
+    the land and start a new life
+    together. Before they leave,
+    Calandra gifts you a golden lyre
+    and all her gold treasure.
+
+    And this is how you become the
+    tragic hero Esmond the Great. You
+    vanquished the evil witch but alas
+    it was too late, as the princess
+    had already perished.
+
+    Only you know the truth..
+    """)
 
 
 def rescue_princess():
@@ -123,6 +160,7 @@ def rescue_princess():
     If there only was something you
     could have done for her..
     """)
+    game_over()
 
 
 def mission_failed():
@@ -132,8 +170,13 @@ def mission_failed():
     in evil_witch().
     """
     print("""
-    
+    Calandra shoots a fireball
+    after you, which hits you in
+    the back. You die immediatly
+    and princess Sera is trapped
+    forever with the evil witch..
     """)
+    game_over()
 
 
 def evil_witch():
@@ -254,15 +297,46 @@ def evil_witch():
                 break
             elif choice == "run":
                 typing_print("""
-                The witch snipes you
+    You decide that you have not
+    what it takes to take on such
+    a formidable foe.
+
+    You turn around and try to
+    run but the evil witch knows
+    no mercy.
                 """)
                 mission_failed()
                 break
             elif choice == "sing" and two_sisters:
                 typing_print("""
-                Witch starts crying
-                calm
-                princess comes and hugs
+    Before you even are aware of
+    it yourself, you have started
+    singing the Tale of Two Sisters:
+
+    'Two sisters divided by birth..'
+
+    It is as if time stands still.
+    The witch, mesmerized by your
+    voice, takes down her hands.
+    Her face softens, she now looks
+    like the exact copy of princess
+    Sera..
+
+    The barrier around princess Sera
+    vanished and she comes running
+    towards you and the witch.
+
+    'Calandra, don't hurt him!'
+
+    She hugs the witch and Calandra
+    starts crying. Could these two
+    be the sisters of the tale?
+
+    As you finish the tale, Sera
+    looks you in the eyes.
+
+    'Please, don't attack her!
+     She is my sister!'    
                 """)
                 happiness()
                 break
