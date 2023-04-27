@@ -20,23 +20,32 @@ I will go in depth of every feature and some of the code used in this game in th
 
 - __Game structure__
 
-    - Before coding the game, a basic flowchart over the game's flow and structure was created on [Lucidchart](https://www.lucidchart.com/). This allowed me to see, which functions, rooms/scenes and outcomes were necessary for the game to feel alive and at the same time not forgetting, which other story elements I wanted to include. 
+  - Before coding the game, a basic flowchart over the game's flow and structure was created on [Lucidchart](https://www.lucidchart.com/). This allowed me to see, which functions, rooms/scenes and outcomes were necessary for the game to feel alive and at the same time not forgetting, which other story elements I wanted to include.
+
+  ![Flowchart from Lucidchart]() 
 
 - __Game start__
 
   - The players will be greeted by the game title. For first time players the tutorial will appear, giving simple instructions on how to play and progress in the game. This is achieved by having a function called tutorial and a global variable called tutorial_shown, which is set to False per default. As long as this variable is set to False the tutorial function will be called, by calling the tutorial function however, the variable will be set to True, which will skip the tutorial for players who already have seen the tutorial before.
 
-![Header and link to rules](/assets/images/readme-img/header.png)
+  How it looks in the game
+  ![Beginning of game]()
 
-- __Game area__
+  The function
+  ![Tutorial function]()
 
-   The game area consists of four different sections:
-    - Player area
-    - Computer area
-    - Choice area
-    - Result area.
+- __Text typing effect__
+
+  - When playtesting the game I noticed that it was difficult to follow the story of the game when using print statements as big chunks of text would suddenly appear. I found helpful code on [101computing](https://www.101computing.net/python-typing-text-effect/) for creating this effect. I decided to move the function to a different file to save on code lines, since I had already exceeded the limit of 1000 lines due to story telling. The function was then imported into the main run.py file.
   
-  ![Entire game area](/assets/images/readme-img/game-area.png)
+  How it looks in the game
+  ![Text typing effect](/assets/images/readme-img/game-area.png)
+
+  The function
+  ![Text typing function]()
+
+  Import
+  ![Import]()
 
 - __Player area__
 
