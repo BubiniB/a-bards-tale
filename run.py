@@ -482,7 +482,7 @@ def game_over_lynched():
     game_over()
 
 
-def game_over_lost_torch():
+def lost_torch():
     # One of the endings in the game
 
     typing_print("""
@@ -551,7 +551,7 @@ def goblins():
                         >> RETURN TO PREVIOUS ROOM
     ______________________________________________________________________
                 """)
-                game_over_lost_torch()
+                lost_torch()
                 break
             elif choice_action == "run":
                 typing_print("""
@@ -566,7 +566,7 @@ def goblins():
                         >> RETURN TO PREVIOUS ROOM
     _____________________________________________________________________
                 """)
-                room_three()
+                light_up()
                 break
             elif choice_action == "sing":
                 typing_print("""
