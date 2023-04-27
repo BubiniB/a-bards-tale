@@ -99,24 +99,14 @@ I will go in depth of every feature and some of the code used in this game in th
 
 - __Lighthouse__
 
-  - Performance test for desktop 
-    - ![Lighthouse desktop index.html](/assets/images/readme-img/lighthouse-desktop.png)
-
-   - Performance test for mobile 
-    - ![Lighthouse mobile index.html](/assets/images/readme-img/lighthouse-mobile.png)
-    
+Performance test for desktop 
+![Lighthouse desktop index.html](/assets/images/readme-img/lighthouse-desktop.png)   
 
 ### Validator Testing 
 
-- HTML
-  - No errors were returned when passing through the official W3C validator. 
-    - ![HTML](/assets/images/readme-img/html-validator.png)
-- CSS
-  - No errors were found when passing through the official W3C CSS validator Jigsaw validator. 
-    - ![CSS](/assets/images/readme-img/css-validator.png)
-- JavaScript
-  - No errors were returned when passing through the official JavaScript validator. There are however warnings because I used "let" for my variables. I have to admit that I do not understand the warnings and what I am supposed to do for fixing them.
-    - ![JavaScript](/assets/images/readme-img/js-validator.png).
+I used the [PEP8 Code Institute](https://pep8ci.herokuapp.com/#) validator and no error or warnings were found.
+
+![PEP8 testresult]()
 
 ### Unfixed Bugs
 
@@ -124,37 +114,30 @@ There are no unfixed bugs.
 
 ## Deployment 
 
-- The site was deployed to GitHub pages. The steps to deploy are as follows: 
+The site was deployed to Heroku. The steps to deploy are as follows: 
   - In the GitHub repository, navigate to the Settings tab 
   - Select "Pages" on the left side bar.
   - Source should be set to "Deploy from a branch" and branch should be set to "main" and folder to "/root".
   - Click on save and wait for page to be deployed (can take several minutes).
   - Refresh page and the link should appear on the top of the 'GitHub pages' page.
 
-The live link can be found here - https://bubinib.github.io/bazinga/ 
+The live link can be found here - 
 
 
 ## Credits 
 
 ### Code - Coding help
 
-- My main inspiration for my functions and layout for my JavaScript file come from [YvonneDev](https://diyifang.medium.com/spock-rock-game-with-javascript-f3cbe9ea61a4), as I really liked the use of highlighting computer choices, making the game more user friendly, as well as keeping the code tidy and object oriented.
-- When googling for inspiration of how a game of rock-paper-scissors could look like, I found helpful code, which inspired me further in creating an object for 'choices' and using it in the checkResult(playerChoice) function. The forum thread is on [StackOverflow](https://stackoverflow.com/questions/22623331/rock-paper-scissors-lizard-spock-in-javascript).
-- I looked up how to implement media queries on [W3School Media queries](https://www.w3schools.com/css/css3_mediaqueries_ex.asp) and [W3Schools Examples on media queries](https://www.w3schools.com/css/css_rwd_mediaqueries.asp).
-- I generated my GitHub and GitPod from the [Code Institute GitPod template](https://github.com/Code-Institute-Org/gitpod-full-template)
-- I looked at the ["Love Maths"](https://github.com/Code-Institute-Solutions/love-maths-2.0-sourcecode/tree/master/05-tidying-up/01-a-few-last-things) project for the code on how to implement a favicon. I converted my png to favicon on [favicon.io](https://favicon.io/favicon-converter/).
-- Inspiration from the ["Love Maths"](https://github.com/Code-Institute-Solutions/love-maths-2.0-sourcecode/tree/master/05-tidying-up/01-a-few-last-things) project was taken in creating the score function.
-- I looked at [W3School's example](https://www.w3schools.com/cssref/pr_class_cursor.php) for changing the look of mouse cursors.
+- I found useful help for coding the clear_console function on [TutorialsPoint](https://www.tutorialspoint.com/how-to-clear-python-shell).
+- I found useful help for coding the text_typing function on [101computing](https://www.101computing.net/python-typing-text-effect/).
+- I generated my GitHub and GitPod from the [Code Institute GitPod template](https://github.com/Code-Institute-Org/p3-template)
+- I looked at the ["Love Sandwiches"](https://github.com/Code-Institute-Solutions/love-sandwiches-p5-sourcecode/tree/master/05-deployment/01-deployment-part-1) project for the try statements and validating user input.
+- I looked at [W3School's example](https://www.w3schools.com/python/python_variables_global.asp) to refresh my memory on how to use global variables.
 
 ### Content 
 
-- The icons for the buttons were taken from [Font Awesome](https://fontawesome.com/)
-- The fonts were taken from [Google Fonts](https://fonts.google.com/)
 - I used [Code Institutes template](https://github.com/Code-Institute-Solutions/readme-template) for creating this README.
-- The quote for the rules was taken from [Big Bang Theory fansite](https://the-big-bang-theory.com/rock-paper-scissors-lizard-spock/).
-
 
 ### Media
 
-- The background image used for this webpage was taken from [Pexels](https://www.pexels.com/sv-se/foto/galaxy-utforskning-astronomi-stjarnstrodd-5685081/)
-- The pngs for the rules image, favicon and logo were taken from [FAVPNG](https://favpng.com/png_search/rock-paper-scissors-lizard-spock).
+- I used [Lucidchart](https://www.lucidchart.com/) for creating my flowchart.
