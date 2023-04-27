@@ -470,7 +470,7 @@ def room_four():
             print(e)
 
 
-def game_over_lynched():
+def lynched():
     # One of the endings in the game
 
     typing_print("""
@@ -578,7 +578,7 @@ def goblins():
     'Hear the story of Erik the great..'
     ____________________________________________________________________
                 """)
-                game_over_lynched()
+                lynched()
                 break
             else:
                 raise ValueError("This is not a valid option.\n")
