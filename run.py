@@ -597,7 +597,7 @@ def dead_end_one():
                         >> RETURN TO PREVIOUS ROOM
     __________________________________________________________________
     """)
-    room_three()
+    light_up()
 
 
 def light_up():
