@@ -33,8 +33,8 @@ def game_over():
     """)
     while True:
         print("Please choose (yes/no):\n")
+        choice_continue = input(">> ").lower()
         try:
-            choice_continue = input(">> ").lower()
             if choice_continue == "yes" or choice_continue == "y":
                 typing_print("""
                         >> RESTARTING GAME
@@ -221,9 +221,9 @@ def evil_witch():
                 happiness()
                 break
             else:
-                raise ValueError("This is not a valid option.")
+                raise ValueError("This is not a valid option.\n")
         except ValueError as e:
-            typing_print(e)
+            print(e)
 
 
 def true_ending():
@@ -321,9 +321,9 @@ def tale():
                 room_four()
                 break
             else:
-                raise ValueError("This is not a valid option.")
+                raise ValueError("This is not a valid option.\n")
         except ValueError as e:
-            typing_print(e)
+            print(e)
 
 
 def game_over_trap():
@@ -395,9 +395,9 @@ def treasure():
                 room_four()
                 break
             else:
-                raise ValueError("This is not a valid option.")
+                raise ValueError("This is not a valid option.\n")
         except ValueError as e:
-            typing_print(e)
+            print(e)
 
 
 def room_four():
@@ -455,9 +455,9 @@ def room_four():
     ____________________________________________________________________
                 """)
             else:
-                raise ValueError("This is not a valid option.")
+                raise ValueError("This is not a valid option.\n")
         except ValueError as e:
-            typing_print(e)
+            print(e)
 
 
 def game_over_lynched():
@@ -571,9 +571,9 @@ def goblins():
                 game_over_lynched()
                 break
             else:
-                raise ValueError("This is not a valid option.")
+                raise ValueError("This is not a valid option.\n")
         except ValueError as e:
-            typing_print(e)
+            print(e)
 
 
 def dead_end_one():
@@ -651,9 +651,9 @@ def giant_spider():
     You don't want to turn back!
                 """)
             else:
-                raise ValueError("This is not a valid option.")
+                raise ValueError("This is not a valid option.\n")
         except ValueError as e:
-            typing_print(e)
+            print(e)
 
 
 def game_over_darkness():
@@ -709,9 +709,9 @@ def darkness():
                 room_one()
                 break
             else:
-                raise ValueError("This is not a valid option.")
+                raise ValueError("This is not a valid option.\n")
         except ValueError as e:
-            typing_print(e)
+            print(e)
 
 
 def room_three():
@@ -797,9 +797,9 @@ def room_two():
                     room_one()
                     break
                 else:
-                    raise ValueError("This is not a valid option.")
+                    raise ValueError("This is not a valid option.\n")
             except ValueError as e:
-                typing_print(e)
+                print(e)
 
 
 def room_one():
@@ -815,22 +815,22 @@ def room_one():
     while True:
         print("Please choose (up/right):\n")
         try:
-            directions_room_one = input(">> ")
-            if directions_room_one.lower() == "up":
+            directions_room_one = input(">> ").lower()
+            if directions_room_one == "up":
                 typing_print("""
      You decide to continue onward.
      ___________________________________________________________
                 """)
                 room_three()
                 break
-            elif directions_room_one.lower() == "right":
+            elif directions_room_one == "right":
                 typing_print("""
     You decide to explore the path to your right.
     ____________________________________________________________
                 """)
                 room_two()
                 break
-            elif directions_room_one.lower() == "left":
+            elif directions_room_one == "left":
                 typing_print("""
     Maybe you should try the left!
 
@@ -839,14 +839,14 @@ def room_one():
     You hit your head on the wall.
     _____________________________________________________________
                 """)
-            elif directions_room_one.lower() == "down":
+            elif directions_room_one == "down":
                 typing_print("""
     No! You cannot turn back now! You are done being a coward!
                 """)
             else:
-                raise ValueError("This is not a valid option.")
+                raise ValueError("This is not a valid option.\n")
         except ValueError as e:
-            typing_print(e)
+            print(e)
 
 
 def game_over_coward():
@@ -878,8 +878,8 @@ def adventure_start():
     while True:
         print("Please choose (up/down):\n")
         try:
-            direction_cave = input(">> ")
-            if direction_cave.lower() == "up":
+            direction_cave = input(">> ").lower()
+            if direction_cave == "up":
                 typing_print("""
     You tighten the grip around your sword. There is no turning back!
     You will rescue the princess and you will be a hero!
@@ -889,7 +889,7 @@ def adventure_start():
                 """)
                 room_one()
                 break
-            elif direction_cave.lower() == "down":
+            elif direction_cave == "down":
                 typing_print("""
     Maybe you were not ready for this challenge after all. Your shaking legs
     seem at least to think so.
@@ -898,9 +898,9 @@ def adventure_start():
                 game_over_coward()
                 break
             else:
-                raise ValueError("This is not a valid option.")
+                raise ValueError("This is not a valid option.\n")
         except ValueError as e:
-            typing_print(e)
+            print(e)
 
 
 def tutorial():

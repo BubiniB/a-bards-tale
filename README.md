@@ -88,6 +88,7 @@ I will go in depth of every feature and some of the code used in this game in th
   - I misspelled the global variable two_sisters (forgot to add the letter s at the end), which meant that the game crashed when getting to room_four().
   - I forgot to add a choice variable and the input command with it in evil_witch(), which made the game crash.
   - In game_over() I called upon the variable choice, when it actually was called choice_continue, crashing the game.
+  - Had to change typing_print to print for raising ValueError
   
 
 - __Browser Compatibility__
