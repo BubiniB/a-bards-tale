@@ -33,8 +33,8 @@ def game_over():
     """)
     while True:
         print("Please choose (yes/no):\n")
-        choice_continue = input(">> ").lower()
         try:
+            choice_continue = input(">> ").lower()
             if choice_continue == "yes" or choice_continue == "y":
                 typing_print("""
                         >> RESTARTING GAME
@@ -247,8 +247,8 @@ def tale():
 
     while True:
         print("Please choose (light/leave):\n")
-        choice_ending = input(">> ").lower()
         try:
+            choice_ending = input(">> ").lower()
             if choice_ending == "light":
                 typing_print("""
     You light up the fire in the middle of the room and a mural with
@@ -266,8 +266,8 @@ def tale():
                 """)
                 while True:
                     print("Please choose (read/leave):\n")
-                    choice_read = input(">> ").lower()
                     try:
+                        choice_read = input(">> ").lower()
                         if choice_read == "read":
                             typing_print("""
     It is the tale of the 2 sisters, twins, divided by birth. One grew up
@@ -368,8 +368,8 @@ def treasure():
 
     while True:
         print("Please choose (y/n):\n")
-        choice_lyre = input(">> ").lower()
         try:
+            choice_lyre = input(">> ").lower()
             if choice_lyre == "y" or choice_lyre == "yes":
                 typing_print("""
     The lyre is just too beautiful to be left behind. You must simply have it.
@@ -411,8 +411,8 @@ def room_four():
 
     while True:
         print("Please choose (left/up/down):\n")
-        choice_path = input(">> ").lower()
         try:
+            choice_path = input(">> ").lower()
             if choice_path == "up":
                 typing_print("""
     You continue on the path that is in front of you.
@@ -515,8 +515,8 @@ def goblins():
 
     while True:
         print("Please choose (fight/run/sing):\n")
-        choice_action = input(">> ").lower()
         try:
+            choice_action = input(">> ").lower()
             if choice_action == "fight":
                 typing_print("""
     You aren't a very skilled fighter. In order to be able to fight you toss
@@ -615,8 +615,8 @@ def giant_spider():
 
     while True:
         print("Please choose (up/left/right):\n")
-        choice_path = input(">> ").lower()
         try:
+            choice_path = input(">> ").lower()
             if choice_path == "up":
                 typing_print("""
     You continue on the path in front of you.
@@ -686,8 +686,8 @@ def darkness():
 
     while True:
         print("Please choose (up/down):\n")
-        choice_darkness = input(">> ").lower()
         try:
+            choice_darkness = input(">> ").lower()
             if choice_darkness == "up":
                 typing_print("""
     No! You shall not be remembered as a coward!
@@ -766,8 +766,8 @@ def room_two():
 
         while True:
             print("Please choose (y/n):\n")
-            choice_torch = input(">> ").lower()
             try:
+                choice_torch = input(">> ").lower()
                 if choice_torch == "y" or choice_torch == "yes":
                     typing_print("""
     You could really use more light and decide to take the torch with you.
@@ -814,8 +814,8 @@ def room_one():
 
     while True:
         print("Please choose (up/right):\n")
-        directions_room_one = input(">> ")
         try:
+            directions_room_one = input(">> ")
             if directions_room_one.lower() == "up":
                 typing_print("""
      You decide to continue onward.
@@ -877,8 +877,8 @@ def adventure_start():
 
     while True:
         print("Please choose (up/down):\n")
-        direction_cave = input(">> ")
         try:
+            direction_cave = input(">> ")
             if direction_cave.lower() == "up":
                 typing_print("""
     You tighten the grip around your sword. There is no turning back!
