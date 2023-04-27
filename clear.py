@@ -15,7 +15,9 @@ def clear_terminal():
     Mac or Linux, after 3 seconds. Used in game_over().
     """
     sleep(3)
+    # For Windows
     if name == 'nt':
         _ = system('cls')
+    # For Mac and Linux
     else:
         _ = system('clear')

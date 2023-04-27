@@ -33,8 +33,8 @@ def game_over():
     """)
     while True:
         print("Please choose (yes/no):\n")
-        choice_continue = input(">> ").lower()
         try:
+            choice_continue = input(">> ").lower()
             if choice_continue == "yes" or choice_continue == "y":
                 typing_print("""
                         >> RESTARTING GAME
@@ -50,7 +50,7 @@ def game_over():
             else:
                 raise ValueError("This is not a valid option.")
         except ValueError as e:
-            typing_print(e)
+            print(e)
 
 
 def happiness():
