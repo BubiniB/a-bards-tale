@@ -1,18 +1,18 @@
 # A Bard's Tale - A text adventure game
 
-A Bard's Tale is a text adventure game created in Python. The game is a self written fantasy story about the bard Esmond Covendown and his adventure to rescue a beautiful princess. Players get to make choices throughout the game and will impact the story in their own way. The game features different endings as well, depending on player choices, creating some replayability. The game can be enjoyed on any device or operative system.
+A Bard's Tale is a text adventure game created in Python. The game is a self written fantasy story about the bard Esmond Covendown and his adventure to rescue a beautiful princess. Players get to make choices throughout the game and will impact the story in their own way. The game features different endings as well, depending on player choices, creating some replayability. The game is played in the Code Institute mock terminal on Heroku and can be enjoyed on any device or operative system.
 
 This game aims to convey the nostalgic feeling of playing "old school" games. I have added a "text typing" effect, which also helps players to read and follow the story better. There are traps and decisions, which lead to a "Game Over" and will force players to restart their adventure. Overall the target group of this game would be either old school gamers, wanting to experience a little bit of nostalgia or "new school" players, who are curious about experiencing how games were "back in the days".
 
-One of the things I would like to add in the future is ASCII art to make the game come a little bit more alive.
+One of the things I would like to add in the future is ASCII art to make the game come a little bit more to life and let players be more immersed visually.
 
 ![Responsivness Mockup]()
 
 ## Features 
 
-On this webpage we have different feauters, such as a quick link down to the rules, in case some players are interested in looking them up, as well as a game area, a choice area, a result area, a score area and a rules area. I will go in depth for every section/area of the game. 
+The game has several features, such as an introduction and tutorial to the game, input fields for players to make choices, choice validations, different story outcomes and a text typing effect for better readability of the story.
 
-The overall idea for this webpage was to let the players have as much "interaction" with their oponent as possible, by making the computer's choices visible. The "Bangers" google font was chosen for the specific comic book feel and used throughout the entire page.
+I will go in depth of every feature and some of the code used in this game in this section.
 
 ### Existing Features
 
