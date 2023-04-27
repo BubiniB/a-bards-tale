@@ -774,7 +774,8 @@ def room_two():
 
                         >> TOOK TORCH
 
-    There is nothing left to see here.
+    As there is nothing left to explore in this room, you decide to return
+    to the previous room. This time however with a torch!
 
                         >> RETURN TO PREVIOUS ROOM
     _______________________________________________________________________
@@ -787,7 +788,8 @@ def room_two():
     You are afraid of taking something which is not yours and decide to
     to leave the torch where it is.
 
-    There is nothing left to see here.
+    As there is nothing left to explore in this room, you decide to return
+    to the previous room without the torch!
 
                         >> RETURN TO PREVIOUS ROOM
     _______________________________________________________________________
@@ -811,23 +813,32 @@ def room_one():
     """)
 
     while True:
-        print("Please choose (right/up):\n")
+        print("Please choose (up/right):\n")
         directions_room_one = input(">> ")
         try:
-            if directions_room_one.lower() == "right":
-                typing_print("""
-    You decide to explore the path to your right.
-    ____________________________________________________________
-                """)
-                room_two()
-                break
-            elif directions_room_one.lower() == "up":
+            if directions_room_one.lower() == "up":
                 typing_print("""
      You decide to continue onward.
      ___________________________________________________________
                 """)
                 room_three()
                 break
+            elif directions_room_one.lower() == "right":
+                typing_print("""
+    You decide to explore the path to your right.
+    ____________________________________________________________
+                """)
+                room_two()
+                break
+            elif directions_room_one.lower() == "left":
+                typing_print("""
+    Maybe you should try the left!
+
+    *OUCH!*
+
+    You hit your head on the wall.
+    _____________________________________________________________
+                """)
             elif directions_room_one.lower() == "down":
                 typing_print("""
     No! You cannot turn back now! You are done being a coward!
