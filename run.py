@@ -336,7 +336,7 @@ def tale():
             print(e)
 
 
-def game_over_trap():
+def trap():
     # One of the endings the player unlocks.
 
     typing_print("""
@@ -389,7 +389,7 @@ def treasure():
     As soon as you take the lyre the ground starts shaking. This wasn't a good
     idea after all...
                 """)
-                game_over_trap()
+                trap()
                 break
             elif choice_lyre == "n" or choice_lyre == "no":
                 typing_print("""
