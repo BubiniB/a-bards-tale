@@ -859,7 +859,7 @@ def room_one():
             print(e)
 
 
-def game_over_coward():
+def coward():
     """
     Unlocks the 'coward' ending and has the reset function, which allows
     players to play another round.
@@ -909,7 +909,7 @@ def adventure_start():
     seem at least to think so.
     _______________________________________________________________________
                 """)
-                game_over_coward()
+                coward()
                 break
             else:
                 raise ValueError("This is not a valid option.\n")
