@@ -19,6 +19,15 @@ torch = False
 two_sisters = False
 
 
+def reset_variables():
+    # Sets all global variables torch and two_sisters to False.
+    global torch
+    torch = False
+
+    global two_sisters
+    two_sisters = False
+
+
 def game_over():
     """
     Let's players know the game has come to an end and gives choice
@@ -32,13 +41,14 @@ def game_over():
     Do you want to play again?
     """)
     while True:
-        print("Please choose (yes/no):\n")
+        print("Please choose (y/n):\n")
         try:
             choice_continue = input(">> ").lower()
             if choice_continue == "yes" or choice_continue == "y":
                 typing_print("""
                         >> RESTARTING GAME
                 """)
+                reset_variables()
                 clear_terminal()
                 main()
                 break
@@ -636,7 +646,7 @@ def giant_spider():
     You choose the path to your left.
     _______________________________________________________________
 
-    You have made past the giant spider and you feel relieved. You
+    You have made it past the giant spider and you feel relieved. You
     take a break and collect your thoughts.
 
     This adventure has been more challenging than anything you have
@@ -921,7 +931,7 @@ def tutorial():
     How will your story end?
 
     Tip:
-    When entering new rooms your character is always facing north.
+    When entering new rooms your character is always facing north (up).
 
     Now, please enjoy a Bard's Tale.
     ________________________________________________________________________
