@@ -84,7 +84,7 @@ I will go in depth of every feature and some of the code used in this game in th
 
 - __Bugs__
 
-  Bugtesting has been done directly on GitPod, since the console shows error messages immediatly. I have also made use of the "Problems" module on GitPod to eliminate unwanted extra whitespaces and keep track on code line length and amount of used characters per line.
+  Bugtesting has been done directly on GitPod, since the console shows error messages immediatly. I have also made use of the "Problems" module on GitPod to eliminate unwanted extra whitespaces and keep track on code line length and amount of used characters per line. I let others play test the game, in order to see if there were any logic or story errors.
 
   These bugs were found during testing and have been removed:
   - I forgot to add .lower() after inputs, which resulted in that if I did not spell the valid input choice in lowercase, then it would not accept the input.
@@ -93,7 +93,8 @@ I will go in depth of every feature and some of the code used in this game in th
   - I forgot to add a choice variable and the input command with it in evil_witch(), which made the game crash.
   - In game_over() I called upon the variable choice, when it actually was called choice_continue, crashing the game.
   - Had to change typing_print to print for raising ValueError and have the input function inside the try statement, otherwise I would get the following error:
-    "TypeError: ValueError object is not iterable" 
+    "TypeError: ValueError object is not iterable"
+  - There was no function that would reset all global variables, which were used for the game story and flow. This would lead to for example that players, who had died in previous runs, but had collected the torch, still had the torch for the next run. I created a reset_variables function and put it in the game_over function, so that all variables are set to False when restarting the game. 
   
 
 - __Browser Compatibility__
