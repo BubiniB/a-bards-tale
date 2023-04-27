@@ -20,13 +20,13 @@ I will go in depth of every feature and some of the code used in this game in th
 
 - __Game structure__
 
-  - Before coding the game, a basic flowchart over the game's flow and structure was created on [Lucidchart](https://www.lucidchart.com/). This allowed me to see, which functions, rooms/scenes and outcomes were necessary for the game to feel alive and at the same time not forgetting, which other story elements I wanted to include.
+  Before coding the game, a basic flowchart over the game's flow and structure was created on [Lucidchart](https://www.lucidchart.com/). This allowed me to see, which functions, rooms/scenes and outcomes were necessary for the game to feel alive and at the same time not forgetting, which other story elements I wanted to include.
 
   ![Flowchart from Lucidchart]() 
 
 - __Game start__
 
-  - The players will be greeted by the game title. For first time players the tutorial will appear, giving simple instructions on how to play and progress in the game. This is achieved by having a function called tutorial and a global variable called tutorial_shown, which is set to False per default. As long as this variable is set to False the tutorial function will be called, by calling the tutorial function however, the variable will be set to True, which will skip the tutorial for players who already have seen the tutorial before.
+  The players will be greeted by the game title. For first time players the tutorial will appear, giving simple instructions on how to play and progress in the game. This is achieved by having a function called tutorial and a global variable called tutorial_shown, which is set to False per default. As long as this variable is set to False the tutorial function will be called, by calling the tutorial function however, the variable will be set to True, which will skip the tutorial for players who already have seen the tutorial before.
 
   How it looks in the game
   ![Beginning of game]()
@@ -36,10 +36,10 @@ I will go in depth of every feature and some of the code used in this game in th
 
 - __Text typing effect__
 
-  - When playtesting the game I noticed that it was difficult to follow the story of the game when using print statements as big chunks of text would suddenly appear. I found helpful code on [101computing](https://www.101computing.net/python-typing-text-effect/) for creating this effect. I decided to move the function to a different file to save on code lines, since I had already exceeded the limit of 1000 lines due to story telling. The function was then imported into the main run.py file.
+  When playtesting the game I noticed that it was difficult to follow the story of the game when using print statements as big chunks of text would suddenly appear. I found helpful code on [101computing](https://www.101computing.net/python-typing-text-effect/) for creating this effect. I decided to move the function to a different file to save on code lines, since I had already exceeded the limit of 1000 lines due to story telling. The function was then imported into the main run.py file.
   
   How it looks in the game
-  ![Text typing effect](/assets/images/readme-img/game-area.png)
+  ![Text typing effect]()
 
   The function
   ![Text typing function]()
@@ -47,146 +47,47 @@ I will go in depth of every feature and some of the code used in this game in th
   Import
   ![Import]()
 
-- __Player area__
+- __Game Over and clear console__
 
-  The player area consists of a small introduction of the oponent, a short explanation on how to start the game and make a selection, as well as buttons, which the player can click on to make a selection and start the actual game.
+  The game_over and clear_console functions are vital parts of this game, since there are many ways for players to reach the end of the game due to the main character dying. It was important to let players be able to choose to restart their adventure, in order to give it another go immediatly or to end the game properly. When restarting the game, the console is cleared, so that it doesn't feel cluttered and overwhelming for players. I found useful help for coding the clear_console function on [TutorialsPoint](https://www.tutorialspoint.com/how-to-clear-python-shell). This function was moved to another file as well in order to save on code lines, and then imported to run.py.
 
-  The player buttons have a hover function, which makes the icons appear yellow/golden to highlight, which alternativ the player is choosing. The cursor has also been changed to "pointer" to make it more clear for players, which areas can be clicked on.
+  Game Over ingame
+  ![Game Over]()
 
-  Every player button has an onclick event, which starts the game with the select() function and allows for the player selection to be highlighted for the duration of the game round.
+  The function
+  ![Clear console function]()
 
-  ![Player area](/assets/images/readme-img/player-area.png)
-
-- __Computer area__
+- __Player inputs__
  
-  The computer area is the area where the computer makes its choice. I wanted to have a more interactive feel to the page and let the player see which choices have been made to make the entire experience more fun.
+  A vital part of the game are the player choices, affecting the flow and progress of the story, and also the ending. In order to make it easier for players to understand, which choices are to be made, they are prompted before the input field. The input fiel is highlighted by ">>" signs so that players understand that this is where they are supposed to write their answer. All choices are validated and when players choose an option, which isn't prompted they will get a message saying that their choice was invalid. After that the same prompt appears again, reminding the players of the available options. All functions that require player input are based on try statements and if/else statements. Some are nested, since they require checks for if global variables are True or False (depending on previous player choices).
 
-  The area consists of the same buttons as the player area but when starting the game by making a selection, the computer's choice will be highlighted in red. This was achieved by adding the displaySheldonChoice() switch function. The highlight resets whenever a new game round is started.
+  ![Player input ingame]()
 
-  ![Computer area](/assets/images/readme-img/computer-area.png)
+  ![Example function]()
 
-  The cursor for every button has been changed to "not allowed" so that players understand that they cannot make a choice for the computer. I have also added onclick alerts in case players might try to anyway, with messages from "Sheldon" for further immersion.
-
-  ![Not-allowed pointer](/assets/images/readme-img/not-allowed.png)
-
-  ![Alert](/assets/images/readme-img/alert.png)
-
-- __Choice area__
-
-  The choice area has been created to further highlight which choice the computer has made in case it is hard for players to follow what the different icons stand for. With the displaySheldonChoice() switch function I have added a small text, which allows players to read which choice the computer has made.
-
-  ![Choice area](/assets/images/readme-img/choice-area.png) 
-
-- __Result area__
-
-  The result area shows whether the player has won, lost or had a tie against the computer. The if/else checkResult() function helps determine what the result of the choices are and displays a message under the computer choice. It's supposed to highlight the result by adding the player and computer color depending on the outcome: yellow for a win, red for a loss. A tie is displayed in a neutral color.
-
-  Here is a picture of how it looks like when the player wins:
-
-  ![Player win](/assets/images/readme-img/result-area-win.png)
-
-  Here is a picture of how it looks like when the player loses:
-
-  ![Player loss](/assets/images/readme-img/result-area-loss.png)
-
-  Here is a picture of how it looks like when the result is a tie:
-
-  ![Tie](/assets/images/readme-img/result-area-tie.png)
-
-- __Score area__
-
-  The score area shows how many games either the player or the computer has won. It is supposed to be a fun counter in case players want to keep track of their games' outcome. The colors are adjusted to fit the rest of the game, which means that yellow is for the player's win record and red for the computer's. This is achieved by the incrementPlayerScore() and incrementSheldonScore() functions, which are inspired by the Code Institute [Love Maths](https://github.com/Code-Institute-Solutions/love-maths-2.0-sourcecode/tree/master/05-tidying-up/01-a-few-last-things) challenge.
-
-  ![Score area](/assets/images/readme-img/score-area.png)
-
-- __Rules area__
-
-  The rules area has been created in case players are not familiar with how the game works or simply because they want to refresh their memory. With the link in the header, players can skip past the game if they want to read the rules first, alternatively scroll down and check on the rules after they have started the game. 
-
-  The rules section starts with a quote from "The Big Bang Theory" where Sheldon explains the rules, followed by an image, which shows how the different choices affect each other. These are more meant as gimmicks, as they can be hard to follow but help increase the feel of the page. I have also added a table to make the rules clearer to read. In the table the icons from the buttons were added so that players recognize the choices.
-
-  ![Rules area: quote and image](/assets/images/readme-img/rules-area-1.png)
-  ![Rules area: table](/assets/images/readme-img/rules-area-2.png)
-
-### JavaScript 
-
-- __Getting information from the DOM__
-
-  - When making the game I wanted to first add all the relevant variables, which were going to be used in the game to make sure I had everything I needed for making the game work. 
-  - During the coding process I would come back to this list and update it depending on if I would see the need for new variables to arise.
-
-- __Object "choices"__
-
-  - As mentioned, I have taken inspiration by [YvonneDev](https://diyifang.medium.com/spock-rock-game-with-javascript-f3cbe9ea61a4) as well as another forum thread on [StackOverflow](https://stackoverflow.com/questions/22623331/rock-paper-scissors-lizard-spock-in-javascript) in order to create a game, which not only is user friendly but keeps the code behind it tidy and object oriented. For this I have chosen to create the "choices" object and store different keys with different values and arrays inside of it, which would help build other functions.
-
-- __sheldonRandomChoice function__
-
-  - The function was created with the help of a Math.random function to randomize the answers, as well as an if/else statement, which helps the program to know when to take certain choices (Rock, Paper, Scissors, Lizard or Spock). Each choice has an even chance of appearing by giving it a span of 0.2 for each choice, since the Math.random function randomizes numbers between 0 and 1.
-
-- __displaySheldonChoice function__
-
-  - This function has been created so that one code block with the computer choice would be executed and show what selection the computer has made. This was best achieved with a switch statement.
-  - The computer's buttons will be highlighted depending on the outcome of the sheldonRandomChoice function and display a text in the choice area.
-
-- __select(playerChoice) function__
-
-  - This function executes when the player clicks on a button since an onclick event was added in the HTML file. A switch statement was used here as well, as only a certain part of the code block needs to run, when the player makes a choice.
-  - It is also the function, which starts the entire game since it's supposed to start when the player has made a choice, thus the startGame function inside of it.
-  - The parameter playerChoice was used to represent the choice that the player makes and passes it to different parts of the code.
-
-- __incrementPlayerScore and incrementSheldonScore__
-
-  - These functions were inspired by the ["Love Maths"](https://github.com/Code-Institute-Solutions/love-maths-2.0-sourcecode/tree/master/05-tidying-up/01-a-few-last-things) project. ParseInt was used in order to return string values as integers.
-  - As the name states: they will increment the player and the computer score.
-
-- __checkResult(playerChoice)__
-
-  - This function was used to check the result of the different choices. An if/else statement was used for the different outcomes and in order to not having to write many code lines for all the different outcomes, the indexOf() method was used. indexOf() returns -1 if the value is not found. The function checks if the computer's choice is found in the defeats array inside of the choice object. If it is found the value is greater than -1 and the player has won the game. Should the value not appear, it cannot be greater than -1, which means that the player loses.
-  - __choice.defeats.indexOf(sheldonChoice)>-1__
-
-- __clearSelected function__
-
-  - This function clears out all highlighted choices, as it would be confusing for players to see their previous choices at the start of each new game round. This function is rather simple as I could not find a better way to keep the code shorter and object oriented in the time frame. [YvonneDev](https://diyifang.medium.com/spock-rock-game-with-javascript-f3cbe9ea61a4) has a solution to make it more object oriented but since I could not follow (understand) the code properly I did not want to "borrow" her solution.
-
-- __startGame function__
-
-  - The function, which triggers clearSelected(), sheldonRandomChoice(), displaySheldonChoice() and checkResult(playerChoice) functions and runs the game.
+  ![Example 2 function]()
 
 ### Features Left to Implement
 
-- I would like to add a sound queue for a win, for a loss and a tie
-- Display a picture for either a win, a loss or tie.
-- Add "best to 10" as game end and game resetting afterwards
+- I would like to add ASCII art for a visually more appealing experience
+- Move story text to (a) different file(s) so that the core code is more legible and not disrupted by all the print statements.
 
 ## Testing 
 
 - __Responsiveness__
 
-  - Responsiveness has been tested in DevTools in order to be able to test on as many devices and screen sizes as possible.
-
-  - A couple of examples of iPhone 5 screen size (320 x 568)
-
-    - ![Bazinga - iPhone 5](/assets/images/readme-img/iphone5-1.png)
-    - ![Bazinga continuation - iPhone 5](/assets/images/readme-img/iphone5-2.png)
-
-  - A couple of examples of iPad screen size (768 x 1024)
-
-    - ![Bazinga - iPad](/assets/images/readme-img/ipad-1.png)
-    - ![Bazinga continuation - iPad](/assets/images/readme-img/ipad-2.png)
-  
-  - Summary of testing, summarized in a table
-
-    - Everything is running as expected.
-
-     ![Responsiveness tests](/assets/images/readme-img/responsiveness-bazinga.png)
+  Since the game is played in the Code Institute mock up terminal on Heroku, I did not test for how it would work on devices other than desktop.
 
 - __Bugs__
 
-  Bugtesting has been done in DevTools.
-  - I forgot to add the parameter playerChoice inside the checkResult() function when calling the startGame(playerChoice) function, which gave an error that "defeats" was undefined and the game wouldn't run.
-  - I forgot to change classList to "selected-sheldon" inside the displaySheldonChoice() function when copying from my select() function, which resulted in that the computer choices weren't highlighted.
-  - I had missed some quotation marks inside the defeats array for the spock key, which resulted in that whenever the player chose "Spock", they would automatically lose:
-      - spock: {name: 'Spock', defeats: ['scissors, rock']} (This is how it looked like).
+  Bugtesting has been done directly on GitPod, since the console shows error messages immediatly. I have also made use of the "Problems" module on GitPod to eliminate unwanted extra whitespaces and keep track on code line length and amount of used characters per line.
+
+  These bugs were found during testing and have been removed:
+  - I forgot to add .lower() after inputs, which resulted in that if I did not spell the valid input choice in lowercase, then it would not accept the input.
+  - There was an indentation error in the treasure() function, which meant that the game would crash at that point.
+  - I misspelled the global variable two_sisters (forgot to add the letter s at the end), which meant that the game crashed when getting to room_four().
+  - I forgot to add a choice variable and the input command with it in evil_witch(), which made the game crash.
+  - In game_over() I called upon the variable choice, when it actually was called choice_continue, crashing the game.
   
 
 - __Browser Compatibility__

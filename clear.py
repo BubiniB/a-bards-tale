@@ -11,10 +11,8 @@ from time import sleep
 
 def clear_terminal():
     """
-    Clears the terminal for
-    devices running on Windows,
-    Mac or Linux, after 3 seconds.
-    Used in game_over().
+    Clears the terminal for devices running on Windows,
+    Mac or Linux, after 3 seconds. Used in game_over().
     """
     sleep(3)
     if name == 'nt':
