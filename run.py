@@ -600,20 +600,10 @@ def dead_end_one():
     room_three()
 
 
-def giant_spider():
+def light_up():
     # Progresses story and let's players make a choice. Validates choices.
 
     typing_print("""
-    As you continue on your path you notice how everything keeps
-    getting darker. But with the torch in your hand you are able to light
-    up the room.
-
-    *GASP*
-
-    A giant spider is waiting for you in the middle of the room.
-
-    You waive your torch at it and scare it away.
-
     There are now 3 paths available to you:
 
     * In front of you
@@ -731,7 +721,17 @@ def room_three():
     """
     global torch
     if torch is True:
-        giant_spider()
+        typing_print("""
+    As you continue on your path you notice how everything keeps getting
+    darker. But with the torch in your hand you are able to light up the room.
+
+    *GASP*
+
+    A giant spider is waiting for you in the middle of the room.
+
+    You waive your torch at it and scare it away.
+        """)
+        light_up()
     else:
         darkness()
 
@@ -878,6 +878,10 @@ def adventure_start():
     # Lets the player choose directions through inputs. Input are validated.
 
     typing_print("""
+    And so your tale begins, in front of the ominous cave at Mount Gylia.
+    You are greeted by the entrance of the giant cave.. An eerie feeling
+    befalls you and your heart starts beating faster.
+
     There are only 2 choices:
     Turn back and admit defeat or push forward and become a hero.
 
@@ -934,7 +938,7 @@ def tutorial():
     When entering new rooms your character is always facing north (up).
 
     Now, please enjoy a Bard's Tale.
-    ________________________________________________________________________
+    =======================================================================
     """)
 
 
@@ -965,11 +969,6 @@ def main():
 
     This is your chance to prove to the world that you are not but a mere
     bard.. You are an adventurer!
-
-    And so your tale begins, in front of the ominous cave at Mount Gylia.
-
-    You are greeted by the entrance of the giant cave.. An eerie feeling
-    befalls you and your heart starts beating faster.
         """)
     adventure_start()
 
