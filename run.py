@@ -911,7 +911,7 @@ def tutorial():
     global tutorial_shown
     tutorial_shown = True
     typing_print("""
-     _______________________________________________________________________
+    Welcome to A Bard's Tale!
 
     How to play the game:
 
@@ -933,8 +933,10 @@ def main():
     The main function of this game. Sets the scene and let's player immerse
     themselves in the game world, as well as start the game.
     """
-    typing_print("""
-    Welcome to A Bard's Tale.
+    print("""
+        =================================================================
+                                A BARD'S TALE
+        =================================================================
     """)
     global tutorial_shown
     if not tutorial_shown:
